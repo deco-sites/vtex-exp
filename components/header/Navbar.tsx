@@ -58,7 +58,7 @@ function Navbar({ items, logo }: {
             <a
               href="/"
               aria-label="Vtex-EXP logo"
-              class="block px-4 py-3 w-[230px]"
+              class="block px-4 w-[230px]"
             >
               <Image src={logo.src} alt={logo.alt} width={210} height={45} />
             </a>
