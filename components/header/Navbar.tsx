@@ -1,19 +1,13 @@
-import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import {
-  CartButton,
-  MenuButton,
-  SearchButton,
-} from "$store/islands/Header/Buttons.tsx";
-import Searchbar from "$store/islands/Header/Searchbar.tsx";
+import { CartButton, MenuButton } from "$store/islands/Header/Buttons.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
+import { asset } from "$fresh/runtime.ts";
 
-function Navbar({ items, searchbar, logo }: {
+function Navbar({ items, logo }: {
   items: INavItem[];
-  searchbar: SearchbarProps;
   logo?: { src: string; alt: string };
 }) {
   return (
@@ -21,66 +15,115 @@ function Navbar({ items, searchbar, logo }: {
       {/* Mobile Version */}
       <div
         style={{ height: navbarHeight }}
-        class="md:hidden flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6 gap-2"
+        class="md:hidden flex flex-row justify-between items-center drop-shadow-md w-full px-5 py-12 gap-2"
       >
-        <MenuButton />
-
         {logo && (
           <a
             href="/"
-            class="flex-grow inline-flex items-center"
+            class="inline-flex items-center w-[100px]"
             style={{ minHeight: navbarHeight }}
-            aria-label="Store logo"
+            aria-label="Vtex-EXP logo"
           >
-            <Image src={logo.src} alt={logo.alt} width={126} height={16} />
+            <Image src={logo.src} alt={logo.alt} width={100} height={40} />
           </a>
         )}
 
-        <div class="flex gap-1">
-          <SearchButton />
-          <CartButton />
+        <button class="flex items-center justify-center rounded-2xl bg-pink py-2 min-w-[100px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150">
+          Buy now
+        </button>
+
+        <div class="flex items-center justify-center -space-x-1.5">
+          <div class="flex items-center gap-1">
+            <a
+              href="/login"
+              aria-label="Log in"
+            >
+              <Icon
+                id="User"
+                size={24}
+                strokeWidth={0.4}
+                class="hover:text-pink transition-colors duration-100"
+              />
+            </a>
+            <CartButton />
+          </div>
+          <MenuButton />
         </div>
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
-        <div class="flex-none w-44">
+      <div class="hidden md:flex flex-row justify-between items-center drop-shadow-md w-full px-6 py-5">
+        <div class="flex gap-4 w-full">
           {logo && (
             <a
               href="/"
-              aria-label="Store logo"
-              class="block px-4 py-3 w-[160px]"
+              aria-label="Vtex-EXP logo"
+              class="block px-4 py-3 w-[230px]"
             >
-              <Image src={logo.src} alt={logo.alt} width={126} height={16} />
+              <Image src={logo.src} alt={logo.alt} width={210} height={45} />
             </a>
           )}
+
+          <div class="md:hidden lg:flex">
+            {items.map((item) => <NavItem item={item} />)}
+          </div>
         </div>
-        <div class="flex-auto flex justify-center">
-          {items.map((item) => <NavItem item={item} />)}
-        </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <SearchButton />
-          <Searchbar searchbar={searchbar} />
-          <a
-            class="btn btn-circle btn-sm btn-ghost"
-            href="/login"
-            aria-label="Log in"
-          >
-            <Icon id="User" size={24} strokeWidth={0.4} />
-          </a>
-          <a
-            class="btn btn-circle btn-sm btn-ghost"
-            href="/wishlist"
-            aria-label="Wishlist"
-          >
-            <Icon
-              id="Heart"
-              size={24}
-              strokeWidth={2}
-              fill="none"
-            />
-          </a>
-          <CartButton />
+
+        <div class="flex-none w-44 flex items-center justify-end gap-8 lg:pr-8">
+          <button class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-2 lg:py-3 min-w-[60%] lg:min-w-[80%] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150">
+            Buy now
+          </button>
+
+          <div class="flex items-center justify-center -space-x-1 lg:-space-x-2 lg:gap-1">
+            <div class="flex items-center gap-1">
+              <a
+                href="/login"
+                aria-label="Log in"
+              >
+                <Icon
+                  id="User"
+                  size={24}
+                  strokeWidth={0.4}
+                  class="hover:text-pink transition-colors duration-100"
+                />
+              </a>
+              <CartButton />
+            </div>
+            <div class="md:flex lg:hidden">
+              <MenuButton />
+            </div>
+            <div class="md:hidden lg:flex items-center justify-center">
+              <div class="w-8 h-8 rounded-full flex items-center justify-center dropdown dropdown-bottom">
+                <label tabIndex={0} class="m-1 flex items-center gap-1.5">
+                  <img
+                    src={asset("/global.svg")}
+                    width={16}
+                    height={16}
+                    alt="Global"
+                    loading="lazy"
+                    class="hover:text-pink transition-colors duration-100 object-cover pb-1"
+                  />
+
+                  <span class="uppercase font-bold text-white">EN</span>
+                </label>
+
+                <ul
+                  tabIndex={0}
+                  class="flex flex-col gap-1 dropdown-content z-[1] text-sm rounded-none menu p-1 shadow-md bg-darkslategray w-[116px]"
+                >
+                  <li>
+                    <a href="#">English</a>
+                  </li>
+                  <li>
+                    <a href="#">Portuguese</a>
+                  </li>
+                  <li>
+                    <a href="#">Spanish</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

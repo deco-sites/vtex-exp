@@ -15,11 +15,6 @@ function MenuItem({ item }: { item: INavItem }) {
           <li>
             <a class="underline text-sm" href={item.href}>Ver todos</a>
           </li>
-          {item.children?.map((node) => (
-            <li>
-              <MenuItem item={node} />
-            </li>
-          ))}
         </ul>
       </div>
     </div>

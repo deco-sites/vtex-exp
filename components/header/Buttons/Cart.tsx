@@ -37,13 +37,18 @@ export default function CartButton() {
         </span>
       )}
       <Button
-        class="btn-circle btn-sm btn-ghost"
+        class="w-8 h-8 rounded-full"
         aria-label="open cart"
         data-deco={displayCart.value && "open-cart"}
         loading={loading.value}
         onClick={onClick}
       >
-        <Icon id="ShoppingCart" size={24} strokeWidth={2} />
+        <Icon
+          id="ShoppingCart"
+          size={24}
+          strokeWidth={2}
+          class="hover:text-pink transition-colors duration-100"
+        />
       </Button>
     </div>
   );

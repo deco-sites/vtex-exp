@@ -46,26 +46,29 @@ function Logos(props: Props) {
   );
 
   return (
-    <div class="w-full container px-4 py-8 flex flex-col gap-8 lg:gap-12 lg:py-10 lg:px-0">
+    <div class="w-full px-4 py-8 flex flex-col gap-8 lg:gap-4 lg:py-10 lg:px-0 bg-gradient-to-b from-midnightblue to-darkslategray">
       <Header
         title={title}
         description={description}
         alignment={layout?.headerAlignment || "center"}
       />
-      <div class="w-full text-center items-center">
-        {list.map((element) => (
-          <div class="w-36 lg:w-40 h-17 lg:h-20 px-4 lg:px-6 py-6 lg:py-4 inline-block align-middle">
-            <div class="flex w-full h-full items-center justify-center">
-              <Image
-                width={300}
-                height={300}
-                src={element.image}
-                alt={element.altText || ""}
-                class="max-w-full max-h-full"
-              />
+      <div class="overflow-hidden">
+        <div class="flex flex-row flex-nowrap w-full animate-walk items-center gap-4">
+          {list.map((element) => (
+            <div class="w-36 h-36 px-4 lg:px-6 lg:py-4 inline-block align-middle lg:m-5">
+              <div class="flex w-36 h-36 items-center justify-center">
+                <Image
+                  width={140}
+                  height={140}
+                  src={element.image}
+                  alt={element.altText || ""}
+                  href={"/"}
+                  class="max-w-full max-h-full hover:scale-125 duration-100 opacity-50 hover:opacity-100"
+                />
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
