@@ -9,7 +9,7 @@ export interface Props {
     description?: string;
     href?: string;
   }>;
-  links: Array<{
+  links?: Array<{
     label: string;
     href: string;
   }>;
@@ -42,7 +42,7 @@ export default function Footer({ logos, links, contactUs }: Props) {
             </div>
 
             <ul class="flex items-center justify-center md:justify-end gap-8 w-full order-1 md:order-2">
-              {links.map((item) => (
+              {links?.map((item) => (
                 <li>
                   <a
                     class="text-white capitalize opacity-90 hover:opacity-100 transition-opacity duration-150 text-sm"

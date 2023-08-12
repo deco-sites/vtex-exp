@@ -26,7 +26,7 @@ export default {
         "slide-left": "slide-left-frame 1s ease normal",
         "slide-right": "slide-right-frame 1s ease normal",
         "slide-bottom": "slide-bottom-frame 1s ease normal forwards",
-        "slide-top-frame": "slide-top-frame 1s ease normal forwards",
+        "slide-top": "slide-top-frame 1s ease normal forwards",
         "progress": "progress-frame ease normal",
         "expand-bar": "expand-bar-frame 1s infinite ease-out normal",
         "button-expand": "expand-button-frame 1s ease normal forwards",
