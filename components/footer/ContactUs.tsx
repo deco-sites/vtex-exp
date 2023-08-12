@@ -1,17 +1,22 @@
 import Input from "$store/components/ui/Input.tsx";
 
-export default function ContactUs() {
+export interface Props {
+  title: string;
+  label: string;
+  description: string;
+}
+
+export default function ContactUs({ title, label, description }: Props) {
   return (
     <div class="w-full h-full flex items-center justify-center lg:max-w-[80%] px-4 lg:px-0">
       <div class="grid lg:grid-cols-2 justify-center lg:justify-between min-w-full gap-7 md:gap-16 lg:gap-0">
         <div class="flex flex-col justify-center lg:justify-start text-center lg:text-start gap-5 lg:gap-3 lg:max-w-[374px]">
-          <h1 class="text-[40px] font-bold text-white">Contact us!</h1>
+          <h1 class="text-[40px] font-bold text-white">{title}</h1>
           <h2 class="text-pink text-2xl">
-            Are you ready to live a unique experience?
+            {label}
           </h2>
           <p class="text-gray text-lg">
-            If you have any questions and for more information, please contact
-            us.
+            {description}
           </p>
         </div>
 

@@ -1,7 +1,9 @@
 import ContactUs from "./ContactUs.tsx";
+import type { Props as ContactProps } from "./ContactUs.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Props {
+  contactUs: ContactProps;
   logos?: Array<{
     image: LiveImage;
     description?: string;
@@ -13,11 +15,11 @@ export interface Props {
   }>;
 }
 
-export default function Footer({ logos, links }: Props) {
+export default function Footer({ logos, links, contactUs }: Props) {
   return (
     <section class="flex flex-col bg-darkslategray w-full h-full pt-24 pb-12 gap-28">
       <div class="flex items-center justify-center w-full">
-        <ContactUs />
+        <ContactUs {...contactUs} />
       </div>
 
       <footer class="flex flex-col items-center justify-center w-full">
