@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #142032;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a1aab7;
+  border-radius: 6px;
+}
+
 @layer base {
 
   /* Allow changing font family via CMS */
@@ -37,48 +50,6 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
-
-  @keyframes slide-left-frame {
-    0% {
-      transform: translateX(100%);
-    }
-
-    to {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slide-right-frame {
-    0% {
-      transform: translateX(-100%)
-    }
-
-    to {
-      transform: translateX(0)
-    }
-  }
-
-  @keyframes slide-bottom-frame {
-    0% {
-      transform: translateY(100%)
-    }
-
-    to {
-      transform: translateY(0)
-    }
-  }
-
-  .animate-slide-left {
-    animation: slide-left-frame 0.4s ease normal;
-  }
-
-  .animate-slide-right {
-    animation: slide-right-frame 0.4s ease normal;
-  }
-
-  .animate-slide-bottom {
-    animation: slide-bottom-frame 0.4s ease normal;
-  }
 }
 
 .group:disabled .group-disabled\:animate-progress {
@@ -94,6 +65,7 @@
     --dot-progress: 100%
   }
 }
+
 @keyframes walk {
   0% {
       transform: translateX(-50%)

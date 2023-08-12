@@ -7,9 +7,11 @@ export interface Props {
 
 export default function Hero({ title, backgroundImage }: Props) {
   return (
-    <div class="w-full h-[80vh] lg:h-[90vh]">
+    <div class="w-full h-screen">
       <div
         class="hero justify-center place-items-start min-h-full"
+        width={100}
+        height={100}
         style={`background-image: url(${backgroundImage});`}
       >
         <div class="hero-overlay bg-transparent" />

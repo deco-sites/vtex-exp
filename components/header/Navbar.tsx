@@ -69,7 +69,7 @@ function Navbar({ items, logo }: {
           </div>
         </div>
 
-        <div class="flex-none w-44 flex items-center justify-end gap-8 lg:pr-8">
+        <div class="flex-none w-52 flex items-center justify-end gap-8 lg:pr-8">
           <button class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-2 lg:py-3 min-w-[60%] lg:min-w-[80%] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150">
             Buy now
           </button>
