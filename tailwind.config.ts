@@ -19,6 +19,9 @@ export default {
     },
     extend: {
       display: ["group-hover"],
+      backgroundImage: {
+        "line-gradient": "url('./line-gradient.png')",
+      },
       animation: {
         "slide-left": "slide-left-frame 1s ease normal",
         "slide-right": "slide-right-frame 1s ease normal",
