@@ -94,7 +94,7 @@ function Navbar({ items, logo }: {
             </div>
             <div class="md:hidden lg:flex items-center justify-center">
               <div class="w-8 h-8 rounded-full flex items-center justify-center dropdown dropdown-bottom">
-                <label tabIndex={0} class="m-1 flex items-center gap-1.5">
+                <label tabIndex={0} class="m-1 flex items-center gap-1.5 cursor-pointer">
                   <img
                     src={asset("/global.svg")}
                     width={16}
