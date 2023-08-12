@@ -57,7 +57,7 @@ function Logos(props: Props) {
           {list.map((element) => (
             <div class="w-36 h-36 px-4 lg:px-6 lg:py-4 inline-block align-middle lg:m-5">
               <div class="flex w-36 h-36 items-center justify-center">
-                <Image
+                <img
                   width={140}
                   height={140}
                   src={element.image}
