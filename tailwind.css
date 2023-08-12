@@ -20,6 +20,11 @@
   /* Allow changing font family via CMS */
   html {
     font-family: var(--font-family);
+    scroll-behavior: smooth;
+  }
+
+  :target {
+    scroll-margin-top: 24px;
   }
 
   /** Remove default styles from input[type=number] */
