@@ -50,7 +50,7 @@ function CardsShelf({
     <>
       <div
         id="card-content"
-        class="w-full h-full lg:h-[668px] max-w-[95%] md:max-w-[85%] mx-auto py-8 flex flex-col gap-12 lg:gap-16 lg:py-10 rounded-xl bg-gradient-to-b from-midnightblue to-darkgray/20 my-24 px-4 md:px-0"
+        class="relative w-full h-full lg:h-[668px] max-w-[95%] md:max-w-[85%] mx-auto py-8 flex flex-col gap-12 lg:gap-16 lg:py-10 rounded-xl bg-gradient-to-b from-midnightblue to-darkgray/20 my-24 px-4 md:px-0"
       >
         <Header
           title={title || ""}

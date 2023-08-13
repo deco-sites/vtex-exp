@@ -38,8 +38,9 @@ export default function BodyVtex(
     <>
       <div
         id="body-div-details"
-        class="bg-[#122644] h-full w-full flex flex-col md:flex-row items-center gap-12 pt-10 overflow-hidden"
+        class="bg-[#122644] h-full w-full flex flex-col md:flex-row items-center gap-12 pt-10 overflow-hidden relative"
       >
+        <div class="absolute w-[50%] inset-0 -translate-y-[75%] translate-x-1/2 gradient opacity-40" />
         {image && (
           <div
             id="body-left-details"

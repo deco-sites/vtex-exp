@@ -46,12 +46,13 @@ function Logos(props: Props) {
   );
 
   return (
-    <div class="w-full px-4 py-8 flex flex-col gap-8 lg:gap-4 lg:py-10 lg:px-0 bg-gradient-to-b from-midnightblue to-darkslategray">
+    <div class="w-full px-4 py-8 flex flex-col gap-8 lg:gap-4 lg:py-10 lg:px-0 bg-gradient-to-b from-midnightblue to-darkslategray relative">
       <Header
         title={title}
         description={description}
         alignment={layout?.headerAlignment || "center"}
       />
+      <div class="absolute w-[45%] inset-0 translate-y-[75%] translate-x-1/2 gradient opacity-30" />
       <div class="overflow-hidden">
         <div class="flex flex-row flex-nowrap w-full animate-walk items-center gap-4">
           {list.map((element) => (
