@@ -40,7 +40,7 @@ function CardsShelf({
         const isVisible = top < window.innerHeight && bottom >= 0;
 
         if (isVisible) {
-          cardContent.classList.add("animate-slide-top");
+          cardContent.classList.add("animate-slide-bottom");
         }
       }
     });
