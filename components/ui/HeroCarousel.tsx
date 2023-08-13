@@ -4,6 +4,7 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
 import Hero from "./Hero.tsx";
 import type { Props as HeroProps } from "./Hero.tsx";
+import TicketSelector from "./TicketSelector.tsx";
 
 export interface Props {
   heros?: HeroProps[];
@@ -51,7 +52,7 @@ function HeroCarousel({ heros, preload, interval }: Props) {
   return (
     <div
       id={id}
-      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] h-screen"
+      class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_64px] h-screen relative"
     >
       <Slider class="carousel carousel-center w-full col-span-full row-span-full gap-6 h-full">
         {heros?.map((hero, index) => (
@@ -64,6 +65,10 @@ function HeroCarousel({ heros, preload, interval }: Props) {
       <Buttons />
 
       <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
+
+      <div class="absolute flex items-center justify-center inset-0 translate-x-1/2 translate-y-[38%] z-10 w-1/2">
+        <TicketSelector />
+      </div>
     </div>
   );
 }
