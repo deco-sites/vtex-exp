@@ -10,12 +10,14 @@ export default {
     },
     colors: {
       "black": "#000",
+      "black-dark": "#081223",
       "white": "#fff",
       "darkslategray": "#142032",
       "midnightblue": "#122644",
       "pink": "#ffc4dd",
       "darkgray": "#a1aab7",
       "crimson": "#f71963",
+      "lightsteelblue": "#BCC5D1",
     },
     extend: {
       display: ["group-hover"],
