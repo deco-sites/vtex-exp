@@ -51,7 +51,7 @@ function Logos(props: Props) {
   }
 
   return (
-    <div class="w-full px-4 py-8 flex flex-col gap-8 lg:gap-4 lg:py-10 lg:px-0 bg-gradient-to-b from-midnightblue to-darkslategray relative">
+    <div class="w-full px-4 py-8 flex flex-col gap-8 lg:gap-4 lg:py-10 lg:px-0 bg-gradient-to-b from-#142032 to-midnightblue relative">
       <Header
         title={title}
         description={description}
