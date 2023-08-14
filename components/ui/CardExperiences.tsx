@@ -3,11 +3,11 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { HTML } from "deco-sites/std/components/HTMLRenderer.tsx";
 
 export interface Props {
-    bg: {
-        image: LiveImage;
-        description?: string;
-    }
-    h1: HTML;
+  bg: {
+    image: LiveImage;
+    description?: string;
+  };
+  h1: HTML;
   cards?: Array<{
     title?: HTML;
     image: LiveImage;
@@ -19,14 +19,14 @@ export default function CardExp({ bg, h1, cards }: Props) {
   return (
     <div class="h-[910px] w-full ">
       <div class="flex justify-center align-middle">
-        <div class="absolute mt-[140px]"> 
-        <Image
+        <div class="absolute mt-[140px]">
+          <Image
             loading="lazy"
             src={bg.image}
             alt={bg.description}
             width={742}
             height={500}
-            />
+          />
         </div>
         <h1 class="m-10">
           {h1 && (

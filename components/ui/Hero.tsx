@@ -3,16 +3,16 @@ import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 export interface Props {
   title: string;
   backgroundImage: ImageType;
+  lcp?: boolean;
 }
 
-export default function Hero({ title, backgroundImage }: Props) {
+export default function Hero({ title, backgroundImage, lcp }: Props) {
   return (
     <div class="w-full h-screen">
       <div
         class="hero justify-center place-items-start min-h-full"
-        width={100}
-        height={100}
         style={`background-image: url(${backgroundImage});`}
+        loading={lcp ? "eager" : "lazy"}
       >
         <div class="hero-overlay bg-transparent" />
         <div class="hero-content text-center text-white pt-32">

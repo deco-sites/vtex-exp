@@ -15,11 +15,30 @@
   border-radius: 6px;
 }
 
+.gradient {
+  background-image: linear-gradient(
+    270deg,
+    hsl(295deg 76% 51%) 0%,
+    hsl(284deg 70% 73%) 26%,
+    hsl(257deg 70% 86%) 39%,
+    hsl(202deg 92% 90%) 50%,
+    hsl(215deg 77% 81%) 61%,
+    hsl(221deg 73% 70%) 74%,
+    hsl(220deg 76% 51%) 100%
+  );
+  filter: blur(125px);
+}
+
 @layer base {
 
   /* Allow changing font family via CMS */
   html {
     font-family: var(--font-family);
+    scroll-behavior: smooth;
+  }
+
+  :target {
+    scroll-margin-top: 24px;
   }
 
   /** Remove default styles from input[type=number] */
@@ -78,20 +97,44 @@
   }
 }
 
-@keyframes walk {
-  0% {
-      transform: translateX(-50%)
+@keyframes slide {
+  from {
+    transform: translateX(0);
   }
-
-  50% {
-      transform: translateX(0)
-  }
-
   to {
-      transform: translateX(-50%)
+    transform: translateX(-100%);
   }
 }
 
-.animate-walk {
-  animation: walk 30s ease-in-out infinite
+.logos {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+}
+
+.logos:after {
+  right: 0;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: 35s slide infinite linear;
+}
+
+.logos-slide img {
+  margin: 0 10px;
 }

@@ -45,19 +45,25 @@ function Logos(props: Props) {
     [],
   );
 
+  function handleLogosCopied() {
+    const copy = document.querySelector(".logos-slide")?.cloneNode(true);
+    document.querySelector(".logos")?.appendChild(copy!);
+  }
+
   return (
-    <div class="w-full px-4 py-8 flex flex-col gap-8 lg:gap-4 lg:py-10 lg:px-0 bg-gradient-to-b from-midnightblue to-darkslategray">
+    <div class="w-full px-4 py-8 flex flex-col gap-8 lg:gap-4 lg:py-10 lg:px-0 bg-gradient-to-b from-midnightblue to-darkslategray relative">
       <Header
         title={title}
         description={description}
         alignment={layout?.headerAlignment || "center"}
       />
-      <div class="overflow-hidden">
-        <div class="flex flex-row flex-nowrap w-full animate-walk items-center gap-4">
+      <div class="absolute w-[45%] inset-0 translate-y-[75%] translate-x-1/2 gradient opacity-30" />
+      <div class="logos">
+        <div class="logos-slide">
           {list.map((element) => (
             <div class="w-36 h-36 px-4 lg:px-6 lg:py-4 inline-block align-middle lg:m-5">
               <div class="flex w-36 h-36 items-center justify-center">
-                <Image
+                <img
                   width={140}
                   height={140}
                   src={element.image}
@@ -69,6 +75,11 @@ function Logos(props: Props) {
             </div>
           ))}
         </div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(${handleLogosCopied.toString()})()`,
+          }}
+        />
       </div>
     </div>
   );
