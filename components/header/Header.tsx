@@ -27,7 +27,7 @@ function Header({
       <Drawers
         menu={{ items: navItems }}
       >
-        <div class="bg-transparent backdrop-blur-sm fixed w-full z-50 animate-slide-bottom">
+        <div class="bg-transparent backdrop-blur-sm fixed w-full z-50 animate-slide-bottom text-white">
           <Navbar items={navItems} logo={logo} />
         </div>
       </Drawers>

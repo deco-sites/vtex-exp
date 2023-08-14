@@ -23,6 +23,7 @@ export default {
       display: ["group-hover"],
       backgroundImage: {
         "line-gradient": "url('./line-gradient.png')",
+        "mask-gradient": "url('./mask-gradient.png')",
       },
       animation: {
         "slide-left": "slide-left-frame 1s ease normal",
