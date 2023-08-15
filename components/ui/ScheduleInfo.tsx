@@ -10,7 +10,7 @@ export interface Props {
 
 function ScheduleCard({ info }: CardProps) {
   return (
-    <div class="rounded-xl flex items-center justify-center text-center border border-lightsteelblue text-white w-[124px] h-full">
+    <div class="rounded-xl flex items-center justify-center text-center text-sm border border-lightsteelblue text-white w-[124px] min-h-[118px] py-1 px-2">
       <span>{info}</span>
     </div>
   );

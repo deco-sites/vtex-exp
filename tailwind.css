@@ -81,6 +81,21 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
+
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #a1aab7;
+  }
+  
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #ffc4dd;
+    border-radius: 100vh;
+  }
 }
 
 .group:disabled .group-disabled\:animate-progress {
