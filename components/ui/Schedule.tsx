@@ -12,7 +12,7 @@ export default function Schedule({ schedules }: Props) {
         <div class="flex flex-col bg-darkslategray/70 w-full h-full py-4 px-4 md:px-12 rounded-xl gap-8">
           <h1 class="text-xl text-white text-center">Agenda</h1>
 
-          <div class="flex items-start justify-start gap-x-3 w-full min-h-[410px] overflow-x-scroll pb-3 scrollbar">
+          <div class="flex items-start justify-start gap-x-3 w-full min-h-[410px] overflow-auto pb-3 scrollbar">
             {schedules?.map((schedule) => <ScheduleInfo {...schedule} />)}
           </div>
 
