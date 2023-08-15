@@ -1,5 +1,6 @@
 import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 import TicketSeller from "./TicketSeller.tsx";
+import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 
 export interface Props {
   backgroundImage: ImageType;
@@ -8,7 +9,7 @@ export interface Props {
 
 export default function Hero({ backgroundImage, lcp }: Props) {
   return (
-    <div class="w-full h-screen">
+    <div class="w-full h-full">
       <div
         class="hero place-items-start min-h-full overflow-hidden"
         style={`background-image: url(${backgroundImage});`}
@@ -16,9 +17,27 @@ export default function Hero({ backgroundImage, lcp }: Props) {
       >
         <div class="hero-overlay bg-gradient-to-b from-[#12264400] to-darkslategray w-screen mix-blend-multiply" />
 
-        <div class="flex flex-col text-white pt-32 px-4 lg:pl-32 space-y-24 2xl:space-y-32 w-screen h-full z-10 relative">
-          <div class="">
-            <h1 class="text-2xl">VTEX Experience - US</h1>
+        <div class="flex flex-col text-white pt-32 px-4 lg:pl-32 space-y-24 2xl:space-y-28 w-screen h-full z-10 relative pb-4">
+          {/* Breadcrumb */}
+          <div>
+            <Breadcrumb
+              itemListElement={[{
+                name: "US - January",
+                item: "/experiences-us-january",
+                "@type": "ListItem",
+                position: 1,
+              }, {
+                name: "BR - June",
+                item: "/experiences-br-june",
+                "@type": "ListItem",
+                position: 2,
+              }, {
+                name: "MX - September",
+                item: "/experiences-mx-september",
+                "@type": "ListItem",
+                position: 3,
+              }]}
+            />
           </div>
 
           <div class="flex flex-col max-w-[480px] items-start gap-11 h-full">
