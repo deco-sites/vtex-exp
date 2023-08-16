@@ -10,7 +10,7 @@ export default function ({ title, subTitle, video }: Props) {
   return (
     <div class="h-full w-full">
       <div class="flex items-center justify-center text-center w-full">
-        <div class="max-w-[936px] space-y-6 mt-20">
+        <div class="min-h-[116px] max-w-[345px] lg:max-w-[936px] md:max-w-[750px] flex flex-col text-center space-y-7 mt-20 m-2">
           <h1 class="">
             {title && (
               <div
@@ -37,7 +37,7 @@ export default function ({ title, subTitle, video }: Props) {
             muted
             controls
             src={video}
-            class="max-w-[996] max-h-[560px] rounded-2xl mb-7"
+            class="max-w-[312px] max-h-[175px] lg:max-w-[996px] lg:max-h-[560px] md:max-w-[590px] md:max-h-[332px] rounded-2xl mb-7"
           >
           </iframe>
         </div>
