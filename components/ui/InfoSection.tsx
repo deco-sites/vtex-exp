@@ -30,12 +30,12 @@ export default function InfoSection(
   { title, subtitle, details, image, infos }: Props,
 ) {
   return (
-    <section class="flex w-full h-full lg:min-h-[980px] py-12 px-2 lg:px-0">
+    <section class="flex w-full h-full lg:min-h-[980px] py-12 px-2 lg:px-0 overflow-x-hidden">
       <div class="flex flex-col w-full items-center justify-center">
         <div class="lg:max-w-4xl w-full flex items-center justify-between gap-6 md:gap-0 px-4 md:px-20 lg:px-0 relative">
           {/* Mobile Background */}
-          <div class="block md:hidden absolute inset-0 bg-mask-gradient-2 -translate-x-[85%] -translate-y-12 bg-no-repeat bg-cover w-[475px] h-[455px]" />
-          <div class="block md:hidden absolute inset-0 bg-mask-gradient-2 translate-x-[65%] -translate-y-12 bg-no-repeat bg-cover w-[475px] h-[455px] rotate-180" />
+          <div class="block sm:hidden absolute inset-0 bg-mask-gradient-2 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-1" />
+          <div class="block sm:hidden absolute inset-0 bg-mask-gradient-2 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-2" />
           {/* Desktop Background */}
           <div class="hidden md:block absolute inset-0 bg-mask-gradient-2 -translate-x-[62%] lg:-translate-x-[72%] -translate-y-44 lg:-translate-y-44 bg-no-repeat bg-cover w-[788px] h-[738px]" />
           <div class="hidden md:flex flex-col gap-12">

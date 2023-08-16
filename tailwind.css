@@ -96,6 +96,14 @@
     background: #ffc4dd;
     border-radius: 100vh;
   }
+
+  .info-image-rotate-1 {
+    transform: scaleY(-1) translateX(-88%);
+  }
+
+  .info-image-rotate-2 {
+    transform: translateX(63%) rotate(180deg);
+  }
 }
 
 .group:disabled .group-disabled\:animate-progress {
