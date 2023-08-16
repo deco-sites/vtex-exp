@@ -18,7 +18,7 @@ export default function ExperiencePackage({ title, cards }: Props) {
       <div class="min-w-[265px] min-h-[632px] md:max-w-[426px] md:max-h-[426px] lg:max-w-[825px] lg:max-h-[265px] mb-32 mt-12 md:mb-0 md:mt-20 lg:mb-0 lg:mt-56">
         <div class="flex text-center items-center justify-center m-10">
           <div class="text-3xl">
-            <h1 class="m-5">
+            <h1 class="m-10">
               {title}
             </h1>
           </div>
