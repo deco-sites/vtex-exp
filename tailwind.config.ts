@@ -24,6 +24,7 @@ export default {
       backgroundImage: {
         "line-gradient": "url('./line-gradient.png')",
         "mask-gradient": "url('./mask-gradient.png')",
+        "mask-gradient-2": "url('./mask-gradient-2.png')",
       },
       animation: {
         "slide-left": "slide-left-frame 1s ease normal",

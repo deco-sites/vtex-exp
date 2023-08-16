@@ -1,7 +1,13 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
+export interface InfoProps {
+  firstContent: string;
+  label: string;
+}
+
 export interface Props {
+  infos: InfoProps[];
   title: string;
   subtitle: string;
   details: string;
@@ -11,21 +17,28 @@ export interface Props {
   };
 }
 
+function Info({ firstContent, label }: InfoProps) {
+  return (
+    <div class="flex flex-col text-center text-darkgray">
+      <h1 class="text-[40px]">{firstContent}</h1>
+      <span>{label}</span>
+    </div>
+  );
+}
+
 export default function InfoSection(
-  { title, subtitle, details, image }: Props,
+  { title, subtitle, details, image, infos }: Props,
 ) {
   return (
-    <section class="flex w-full h-full py-4 px-2 lg:px-0">
+    <section class="flex w-full h-full lg:min-h-[820px] py-12 px-2 lg:px-0">
       <div class="flex w-full items-center justify-center">
-        <div class="max-w-4xl w-full flex items-center justify-between">
+        <div class="lg:max-w-4xl w-full flex items-center justify-between gap-6 md:gap-0 px-20 lg:px-0 relative">
+          <div class="hidden md:block absolute inset-0 bg-mask-gradient-2 -translate-x-[62%] lg:-translate-x-[72%] -translate-y-44 lg:-translate-y-52 bg-no-repeat bg-cover w-[788px] h-[738px]" />
           <div class="flex flex-col gap-12">
-            <div class="flex flex-col text-center text-darkgray">
-              <h1 class="text-[40px]">3</h1>
-              <span>days</span>
-            </div>
+            {infos?.map((info) => <Info {...info} />)}
           </div>
 
-          <div class="flex flex-col max-w-[547px]">
+          <div class="flex flex-col sm:max-w-full md:max-w-[65%] lg:max-w-[547px]">
             <h1 class="text-white text-[40px]">{title}</h1>
             <span class="text-pink text-2xl pt-[30px]">{subtitle}</span>
             <p class="text-darkgray pt-3">{details}</p>
