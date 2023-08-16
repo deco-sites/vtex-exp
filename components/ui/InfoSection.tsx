@@ -71,7 +71,10 @@ export default function InfoSection(
           </div>
         </div>
 
-        <div class="bg-line-gradient w-[90%] h-1 mt-20 md:mt-32" loading="lazy" />
+        <div
+          class="bg-line-gradient w-[90%] h-1 mt-20 md:mt-32"
+          loading="lazy"
+        />
       </div>
     </section>
   );
