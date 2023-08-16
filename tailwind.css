@@ -104,6 +104,14 @@
   .info-image-rotate-2 {
     transform: translateX(63%) rotate(180deg);
   }
+
+  .info-image-rotate-3-md {
+    transform: translateX(-62%) translateY(-32%);
+  }
+
+  .info-image-rotate-3-lg {
+    transform: translateX(-72%) translateY(-28%);
+  }
 }
 
 .group:disabled .group-disabled\:animate-progress {

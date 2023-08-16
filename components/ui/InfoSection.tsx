@@ -37,7 +37,7 @@ export default function InfoSection(
           <div class="block sm:hidden absolute inset-0 bg-mask-gradient-2 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-1" />
           <div class="block sm:hidden absolute inset-0 bg-mask-gradient-2 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-2" />
           {/* Desktop Background */}
-          <div class="hidden md:block absolute inset-0 bg-mask-gradient-2 -translate-x-[62%] lg:-translate-x-[72%] -translate-y-44 lg:-translate-y-44 bg-no-repeat bg-cover w-[788px] h-[738px]" />
+          <div class="hidden md:block absolute inset-0 bg-mask-gradient-2 bg-no-repeat bg-cover w-[788px] h-[738px] md:info-image-rotate-3-md lg:info-image-rotate-3-lg" />
           <div class="hidden md:flex flex-col gap-12">
             {infos?.map((info) => <Info {...info} />)}
           </div>
