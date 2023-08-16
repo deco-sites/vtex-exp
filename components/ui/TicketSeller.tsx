@@ -13,7 +13,7 @@ export default function TicketSeller() {
         <span class="text-lightsteelblue text-xs">1ST PACKAGE BATCH</span>
       </div>
 
-      <div class="flex flex-col md:flex-row items-center justify-center align-middle pt-4 md:pt-2 gap-2">
+      <div class="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start align-middle pt-4 md:pt-2 gap-2">
         <QuantitySelector quantity={0} />
 
         <button class="flex items-center justify-center rounded-2xl lg:rounded-xl py-3 min-w-[88px] h-[40px] border text-white font-semibold border-pink hover:bg-pink transition-all duration-150">

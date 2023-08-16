@@ -18,7 +18,7 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
   return (
     <div class="flex items-center justify-between border border-pink text-white w-full max-w-[88px] md:max-w-[130px] h-[40px] rounded-xl mx-3 md:mx-1">
       <Button
-        class="btn-square btn-ghost join-item hover:bg-transparent hover:border-none"
+        class="btn-square btn-ghost join-item hover:bg-transparent"
         onClick={decrement}
         disabled={disabled}
         loading={loading}
@@ -39,7 +39,7 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
         size={3}
       />
       <Button
-        class="btn-square btn-ghost join-item hover:bg-transparent hover:border-none"
+        class="btn-square btn-ghost join-item hover:bg-transparent"
         onClick={increment}
         disabled={disabled}
         loading={loading}
