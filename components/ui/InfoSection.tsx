@@ -30,7 +30,7 @@ export default function InfoSection(
   { title, subtitle, details, image, infos }: Props,
 ) {
   return (
-    <section class="flex w-full h-full lg:min-h-[980px] py-12 px-2 lg:px-0 overflow-x-hidden">
+    <section class="flex w-full h-full lg:min-h-[980px] py-12 px-2 lg:px-0 overflow-x-hidden md:overflow-x-clip">
       <div class="flex flex-col w-full items-center justify-center">
         <div class="lg:max-w-4xl w-full flex items-center justify-between gap-6 md:gap-0 px-4 md:px-20 lg:px-0 relative">
           {/* Mobile Background */}
