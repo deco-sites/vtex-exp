@@ -52,7 +52,7 @@ function MobileCarousel({ cards, interval }: Props) {
       id={id}
       class="flex flex-col items-center justify-center px-0 sm:px-5 md:hidden w-full h-full"
     >
-      <Slider class="carousel carousel-center gap-6 col-span-full row-start-2 row-end-5 h-full">
+      <Slider class="carousel carousel-center gap-6 w-full h-full">
         {cards?.map((card, index) => (
           <Slider.Item
             index={index}
@@ -65,7 +65,7 @@ function MobileCarousel({ cards, interval }: Props) {
 
       <Dots cards={cards} interval={interval} />
 
-      <SliderJS rootId={id} />
+      <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>
   );
 }
