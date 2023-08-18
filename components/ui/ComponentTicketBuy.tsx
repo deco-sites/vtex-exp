@@ -6,7 +6,7 @@ export interface Props {
   image?: {
     icon: LiveImage;
     description?: string;
-    width: number; 
+    width: number;
     height: number;
   };
   title?: string;
@@ -17,7 +17,7 @@ export default function ComponentTicketBuy({ image, title }: Props) {
     <div class="flex flex-col text-center min-w-[294px] min-h-[392px] bg-gradient-to-b from-darkgray/20 to-darkgray/40 rounded-xl backdrop-blur-xl bg-opacity-20 items-center justify-center p-4">
       <div class="flex flex-col gap-0.5 w-full items-center justify-center">
         <div class="w-[40] h-[40] p-4">
-          <div class=""> 
+          <div class="">
             {image && (
               <Image
                 width={image.width}
