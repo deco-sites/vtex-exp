@@ -14,7 +14,7 @@ export interface Props {
 
 export default function ExperiencePackage({ title, cards }: Props) {
   return (
-    <div class="min-w-[55] md:min-w-[80vh] max-h-full lg:max-h-[55vh] flex items-center justify-center">
+    <div class="min-w-full md:min-w-[80vh] max-h-full lg:max-h-[55vh] flex items-center justify-center">
       <div class="min-w-[265px] min-h-[632px] md:max-w-[426px] md:max-h-[426px] lg:max-w-[825px] lg:max-h-[265px] mb-32 mt-12 md:mb-0 md:mt-20 lg:mb-0 lg:mt-56">
         <div class="flex text-center items-center justify-center m-10">
           <div class="text-3xl">
