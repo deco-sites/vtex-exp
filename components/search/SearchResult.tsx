@@ -1,6 +1,6 @@
 import Filters from "$store/components/search/Filters.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import SearchControls from "$store/islands/SearchControls.tsx";
+// import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
@@ -43,12 +43,14 @@ function Result({
   return (
     <>
       <div class="container px-4 sm:py-10">
-        <SearchControls
+        {
+          /* <SearchControls
           sortOptions={sortOptions}
           filters={filters}
           breadcrumb={breadcrumb}
           displayFilter={layout?.variant === "drawer"}
-        />
+        /> */
+        }
 
         <div class="flex flex-row">
           {layout?.variant === "aside" && filters.length > 0 && (

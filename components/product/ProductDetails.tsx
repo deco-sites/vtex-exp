@@ -2,12 +2,12 @@ import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
-import AddToCartButton from "$store/islands/AddToCartButton.tsx";
-import OutOfStock from "$store/islands/OutOfStock.tsx";
-import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
-import ShippingSimulation from "$store/islands/ShippingSimulation.tsx";
+// import AddToCartButton from "$store/islands/AddToCartButton.tsx";
+// import OutOfStock from "$store/islands/OutOfStock.tsx";
+// import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
+// import ShippingSimulation from "$store/islands/ShippingSimulation.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
-import Component from "$store/islands/WishlistButton.tsx";
+// import Component from "$store/islands/WishlistButton.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useId } from "$store/sdk/useId.ts";
@@ -101,7 +101,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
+      {
+        /* <div class="mt-4 sm:mt-10 flex flex-col gap-2">
         {availability === "https://schema.org/InStock"
           ? (
             <>
@@ -123,9 +124,11 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             </>
           )
           : <OutOfStock productID={productID} />}
-      </div>
+      </div> */
+      }
       {/* Shipping Simulation */}
-      <div class="mt-8">
+      {
+        /* <div class="mt-8">
         <ShippingSimulation
           items={[{
             id: Number(product.sku),
@@ -133,7 +136,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             seller: seller ?? "1",
           }]}
         />
-      </div>
+      </div> */
+      }
       {/* Description card */}
       <div class="mt-4 sm:mt-6">
         <span class="text-sm">
@@ -287,13 +291,15 @@ function Details({
               <Icon size={24} id="ChevronRight" strokeWidth={3} />
             </Slider.NextButton>
 
-            <div class="absolute top-2 right-2 bg-base-100 rounded-full">
+            {
+              /* <div class="absolute top-2 right-2 bg-base-100 rounded-full">
               <ProductImageZoom
                 images={images}
                 width={700}
                 height={Math.trunc(700 * HEIGHT / WIDTH)}
               />
-            </div>
+            </div> */
+            }
           </div>
 
           {/* Dots */}

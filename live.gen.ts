@@ -3,17 +3,10 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $$$$0 from "./routes/_app.tsx";
-import * as $$$$$0 from "./islands/AddToCartButton.tsx";
-import * as $$$$$1 from "./islands/Header/Buttons.tsx";
-import * as $$$$$2 from "./islands/Header/Drawers.tsx";
-import * as $$$$$3 from "./islands/Header/Searchbar.tsx";
-import * as $$$$$4 from "./islands/Newsletter.tsx";
-import * as $$$$$5 from "./islands/OutOfStock.tsx";
-import * as $$$$$6 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$7 from "./islands/SearchControls.tsx";
-import * as $$$$$8 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$9 from "./islands/SliderJS.tsx";
-import * as $$$$$10 from "./islands/WishlistButton.tsx";
+import * as $$$$$0 from "./islands/Header/Buttons.tsx";
+import * as $$$$$1 from "./islands/Header/Drawers.tsx";
+import * as $$$$$2 from "./islands/Header/Searchbar.tsx";
+import * as $$$$$3 from "./islands/SliderJS.tsx";
 import * as $$$$$$$$0 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$$$1 from "./sections/Category/CategoryList.tsx";
 import * as $$$$$$$$2 from "./sections/Content/Benefits.tsx";
@@ -192,17 +185,10 @@ const manifest = {
     "./routes/_app.tsx": $$$$0,
   },
   "islands": {
-    "./islands/AddToCartButton.tsx": $$$$$0,
-    "./islands/Header/Buttons.tsx": $$$$$1,
-    "./islands/Header/Drawers.tsx": $$$$$2,
-    "./islands/Header/Searchbar.tsx": $$$$$3,
-    "./islands/Newsletter.tsx": $$$$$4,
-    "./islands/OutOfStock.tsx": $$$$$5,
-    "./islands/ProductImageZoom.tsx": $$$$$6,
-    "./islands/SearchControls.tsx": $$$$$7,
-    "./islands/ShippingSimulation.tsx": $$$$$8,
-    "./islands/SliderJS.tsx": $$$$$9,
-    "./islands/WishlistButton.tsx": $$$$$10,
+    "./islands/Header/Buttons.tsx": $$$$$0,
+    "./islands/Header/Drawers.tsx": $$$$$1,
+    "./islands/Header/Searchbar.tsx": $$$$$2,
+    "./islands/SliderJS.tsx": $$$$$3,
   },
   "sections": {
     "$live/sections/Conditional_Beta.tsx": i2$$$$$0,

@@ -1,6 +1,6 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Avatar from "$store/components/ui/Avatar.tsx";
-import WishlistIcon from "$store/islands/WishlistButton.tsx";
+// import WishlistIcon from "$store/islands/WishlistButton.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
@@ -129,7 +129,8 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
         style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}
       >
         {/* Wishlist button */}
-        <div
+        {
+          /* <div
           class={`absolute top-2 z-10
           ${
             l?.elementsPositions?.favoriteIcon === "Top left"
@@ -147,7 +148,8 @@ function ProductCard({ product, preload, itemListName, layout }: Props) {
             productGroupID={productGroupID}
             productID={productID}
           />
-        </div>
+        </div> */
+        }
         {/* Product Images */}
         <a
           href={url && relative(url)}
