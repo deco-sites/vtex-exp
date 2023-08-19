@@ -72,6 +72,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
             <div class="hidden sm:block absolute inset-0 translate-x-[60%] translate-y-[18%] z-10 w-full h-full">
               <img
                 loading="lazy"
+                alt="Mask Gradient"
                 src={asset("/mask-gradient.png")}
                 class="bg-no-repeat bg-contain w-[278px] h-[243px] lg:w-[522px] lg:h-[456px] 2xl:w-[600px] 2xl:h-[512px]"
               />
@@ -80,6 +81,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
             <div class="hidden sm:block absolute inset-0 translate-x-[80%] lg:translate-x-[90%] translate-y-[40%] lg:translate-y-[58%] z-10 w-full h-full">
               <img
                 loading="lazy"
+                alt="Mask Gradient"
                 src={asset("/mask-gradient.png")}
                 class="bg-no-repeat bg-contain w-[260px] h-[227px] lg:w-[409px] lg:h-[357px]"
               />
