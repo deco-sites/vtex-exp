@@ -41,7 +41,7 @@ export default function InfoSection(
             alt="Gradient"
             width={475}
             height={455}
-            src={asset("/mask-gradient-2.png")}
+            src={asset("/mask-gradient-2.webp")}
             class="block sm:hidden absolute inset-0 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-1"
           />
           <img
@@ -49,7 +49,7 @@ export default function InfoSection(
             alt="Gradient"
             width={475}
             height={455}
-            src={asset("/mask-gradient-2.png")}
+            src={asset("/mask-gradient-2.webp")}
             class="block sm:hidden absolute inset-0 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-2"
           />
           {/* Desktop Background */}
@@ -58,7 +58,7 @@ export default function InfoSection(
             alt="Gradient"
             width={788}
             height={738}
-            src={asset("/mask-gradient-2.png")}
+            src={asset("/mask-gradient-2.webp")}
             class="hidden md:block absolute inset-0 bg-no-repeat bg-cover w-[788px] h-[738px] md:info-image-rotate-3-md lg:info-image-rotate-3-lg"
           />
           <div class="hidden md:flex flex-col gap-12">
