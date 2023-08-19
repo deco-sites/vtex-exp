@@ -29,7 +29,7 @@ export default function Sponsors({ sponsors, interval = 0 }: Props) {
         {sponsors?.map((sponsor, index) => (
           <Slider.Item
             index={index}
-            class="carousel-item w-full flex flex-col gap-8 items-center justify-center"
+            class="carousel-item w-full flex flex-col gap-14 md:gap-8 items-center justify-center"
           >
             <div class="text-[32px] text-center flex flex-col md:flex-row gap-1 md:gap-3">
               <span>Sponsors:</span>

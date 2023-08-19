@@ -1,4 +1,7 @@
+import { asset } from "$fresh/runtime.ts";
+
 import type { Image as ImageType } from "deco-sites/std/components/types.ts";
+
 import TicketSeller from "./TicketSeller.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 
@@ -12,6 +15,9 @@ export default function Hero({ backgroundImage, lcp }: Props) {
     <div class="w-full h-full">
       <div
         class="hero place-items-start min-h-full overflow-hidden"
+        width="100%"
+        height="100%"
+        sizes="100vw, 100vh"
         style={`background-image: url(${backgroundImage});`}
         loading={lcp ? "eager" : "lazy"}
       >
@@ -64,11 +70,19 @@ export default function Hero({ backgroundImage, lcp }: Props) {
             </div>
 
             <div class="hidden sm:block absolute inset-0 translate-x-[60%] translate-y-[18%] z-10 w-full h-full">
-              <div class="bg-mask-gradient bg-no-repeat bg-contain w-[278px] h-[243px] lg:w-[522px] lg:h-[456px] 2xl:w-[600px] 2xl:h-[512px]" />
+              <img
+                loading="lazy"
+                src={asset("/mask-gradient.png")}
+                class="bg-no-repeat bg-contain w-[278px] h-[243px] lg:w-[522px] lg:h-[456px] 2xl:w-[600px] 2xl:h-[512px]"
+              />
             </div>
 
             <div class="hidden sm:block absolute inset-0 translate-x-[80%] lg:translate-x-[90%] translate-y-[40%] lg:translate-y-[58%] z-10 w-full h-full">
-              <div class="bg-mask-gradient bg-no-repeat bg-contain w-[260px] h-[227px] lg:w-[409px] lg:h-[357px]" />
+              <img
+                loading="lazy"
+                src={asset("/mask-gradient.png")}
+                class="bg-no-repeat bg-contain w-[260px] h-[227px] lg:w-[409px] lg:h-[357px]"
+              />
             </div>
           </div>
         </div>

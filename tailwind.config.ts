@@ -21,11 +21,6 @@ export default {
     },
     extend: {
       display: ["group-hover"],
-      backgroundImage: {
-        "line-gradient": "url('./line-gradient.png')",
-        "mask-gradient": "url('./mask-gradient.png')",
-        "mask-gradient-2": "url('./mask-gradient-2.png')",
-      },
       animation: {
         "slide-left": "slide-left-frame 1s ease normal",
         "slide-right": "slide-right-frame 1s ease normal",

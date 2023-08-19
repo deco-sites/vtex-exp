@@ -1,3 +1,5 @@
+import { asset } from "$fresh/runtime.ts";
+
 import ContactUs from "./ContactUs.tsx";
 import type { Props as ContactProps } from "./ContactUs.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
@@ -23,7 +25,12 @@ export default function Footer({ logos, links, contactUs }: Props) {
       </div>
 
       <footer class="flex flex-col items-center justify-center w-full">
-        <div class="bg-line-gradient w-[90%] h-1" loading="lazy" />
+        <img
+          class="w-[90%]"
+          alt="Line Gradient"
+          src={asset("/line-gradient.png")}
+          loading="lazy"
+        />
 
         <div class="flex px-4 md:px-0 w-full md:max-w-[85%] mt-10 md:mt-14">
           <div class="flex flex-col md:flex-row items-center md:justify-between min-w-full gap-16 md:gap-0">

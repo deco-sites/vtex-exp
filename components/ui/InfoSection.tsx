@@ -1,3 +1,5 @@
+import { asset } from "$fresh/runtime.ts";
+
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
@@ -34,10 +36,25 @@ export default function InfoSection(
       <div class="flex flex-col w-full items-center justify-center">
         <div class="lg:max-w-4xl w-full flex items-center justify-between gap-6 md:gap-0 px-4 md:px-20 lg:px-0 relative">
           {/* Mobile Background */}
-          <div class="block sm:hidden absolute inset-0 bg-mask-gradient-2 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-1" />
-          <div class="block sm:hidden absolute inset-0 bg-mask-gradient-2 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-2" />
+          <img
+            loading="lazy"
+            alt="Gradient"
+            src={asset("/mask-gradient-2.png")}
+            class="block sm:hidden absolute inset-0 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-1"
+          />
+          <img
+            loading="lazy"
+            alt="Gradient"
+            src={asset("/mask-gradient-2.png")}
+            class="block sm:hidden absolute inset-0 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-2"
+          />
           {/* Desktop Background */}
-          <div class="hidden md:block absolute inset-0 bg-mask-gradient-2 bg-no-repeat bg-cover w-[788px] h-[738px] md:info-image-rotate-3-md lg:info-image-rotate-3-lg" />
+          <img
+            loading="lazy"
+            alt="Gradient"
+            src={asset("/mask-gradient-2.png")}
+            class="hidden md:block absolute inset-0 bg-no-repeat bg-cover w-[788px] h-[738px] md:info-image-rotate-3-md lg:info-image-rotate-3-lg"
+          />
           <div class="hidden md:flex flex-col gap-12">
             {infos?.map((info) => <Info {...info} />)}
           </div>
@@ -71,8 +88,10 @@ export default function InfoSection(
           </div>
         </div>
 
-        <div
-          class="bg-line-gradient w-[90%] h-1 mt-20 md:mt-32"
+        <img
+          src={asset("/line-gradient.png")}
+          alt="Line Gradient"
+          class="w-[90%] mt-20 md:mt-32"
           loading="lazy"
         />
       </div>
