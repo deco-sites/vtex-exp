@@ -73,6 +73,8 @@ export default function Hero({ backgroundImage, lcp }: Props) {
               <img
                 loading="lazy"
                 alt="Mask Gradient"
+                width={500}
+                height={500}
                 src={asset("/mask-gradient.png")}
                 class="bg-no-repeat bg-contain w-[278px] h-[243px] lg:w-[522px] lg:h-[456px] 2xl:w-[600px] 2xl:h-[512px]"
               />
@@ -82,6 +84,8 @@ export default function Hero({ backgroundImage, lcp }: Props) {
               <img
                 loading="lazy"
                 alt="Mask Gradient"
+                width={500}
+                height={500}
                 src={asset("/mask-gradient.png")}
                 class="bg-no-repeat bg-contain w-[260px] h-[227px] lg:w-[409px] lg:h-[357px]"
               />

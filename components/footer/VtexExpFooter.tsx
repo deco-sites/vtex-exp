@@ -28,6 +28,8 @@ export default function Footer({ logos, links, contactUs }: Props) {
         <img
           class="w-[90%]"
           alt="Line Gradient"
+          width={300}
+          height={4}
           src={asset("/line-gradient.png")}
           loading="lazy"
         />

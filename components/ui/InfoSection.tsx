@@ -39,12 +39,16 @@ export default function InfoSection(
           <img
             loading="lazy"
             alt="Gradient"
+            width={475}
+            height={455}
             src={asset("/mask-gradient-2.png")}
             class="block sm:hidden absolute inset-0 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-1"
           />
           <img
             loading="lazy"
             alt="Gradient"
+            width={475}
+            height={455}
             src={asset("/mask-gradient-2.png")}
             class="block sm:hidden absolute inset-0 bg-no-repeat bg-cover w-[475px] h-[455px] info-image-rotate-2"
           />
@@ -52,6 +56,8 @@ export default function InfoSection(
           <img
             loading="lazy"
             alt="Gradient"
+            width={788}
+            height={738}
             src={asset("/mask-gradient-2.png")}
             class="hidden md:block absolute inset-0 bg-no-repeat bg-cover w-[788px] h-[738px] md:info-image-rotate-3-md lg:info-image-rotate-3-lg"
           />
@@ -91,6 +97,8 @@ export default function InfoSection(
         <img
           src={asset("/line-gradient.png")}
           alt="Line Gradient"
+          width={300}
+          height={4}
           class="w-[90%] mt-20 md:mt-32"
           loading="lazy"
         />
