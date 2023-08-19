@@ -36,7 +36,7 @@ export default function Sponsors({ sponsors, interval = 0 }: Props) {
               <span class="uppercase text-pink">{sponsor.title}</span>
             </div>
 
-            <div class="flex flex-wrap items-center justify-center gap-12 space-x-12">
+            <div class="flex flex-wrap items-center justify-center gap-12 md:space-x-12">
               {sponsor?.logos?.map((item) => (
                 <img
                   src={item.image}
