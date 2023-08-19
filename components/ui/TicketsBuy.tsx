@@ -26,16 +26,14 @@ function Dots({ cards, interval = 0 }: Props) {
           `,
         }}
       />
-      <ul class="carousel justify-center col-span-full gap-4 z-10 row-start-4">
+      <ul class="flex items-center justify-center gap-4 z-10 rounded-[5px] bg-midnightblue w-[90px] h-[10px]">
         {cards?.map((_, index) => (
           <li class="carousel-item">
             <Slider.Dot index={index}>
-              <div class="py-5">
-                <div
-                  class="w-16 sm:w-20 h-0.5 rounded group-disabled:animate-progress bg-gradient-to-r from-base-100 from-[length:var(--dot-progress)] to-[rgba(255,255,255,0.4)] to-[length:var(--dot-progress)]"
-                  style={{ animationDuration: `${interval}s` }}
-                />
-              </div>
+              <div
+                class="w-8 h-[10px] rounded-[5px] group-disabled:animate-progress bg-gradient-to-r from-pink from-[length:var(--dot-progress)] to-midnightblue to-[length:var(--dot-progress)]"
+                style={{ animationDuration: `${interval}s` }}
+              />
             </Slider.Dot>
           </li>
         ))}

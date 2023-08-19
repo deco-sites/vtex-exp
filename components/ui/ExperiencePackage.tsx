@@ -29,7 +29,10 @@ export default function ExperiencePackage({ title, cards }: Props) {
               <img
                 src={card.image.icon}
                 alt={card.image.alt}
+                width={30}
+                height={30}
                 class="max-w-[29px]"
+                loading="lazy"
               />
               <h2 class="text-lg text-[#FFC4DD] mt-[15px] mb-[10px]">
                 {card.title}

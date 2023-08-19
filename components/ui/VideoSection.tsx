@@ -1,9 +1,12 @@
+import Video from "deco-sites/std/components/Video.tsx";
+
 import type { HTML } from "deco-sites/std/components/HTMLRenderer.tsx";
+import type { Video as LiveVideo } from "deco-sites/std/components/types.ts";
 
 export interface Props {
   title: HTML;
   subTitle: HTML;
-  video: string;
+  video: LiveVideo;
 }
 
 export default function ({ title, subTitle, video }: Props) {
@@ -31,15 +34,16 @@ export default function ({ title, subTitle, video }: Props) {
       </div>
       <div>
         <div class="flex items-center justify-center w-full h-full mt-7">
-          <iframe
-            width="996"
-            height="560"
+          <Video
+            width={996}
+            height={560}
             muted
             controls
             src={video}
+            loading="lazy"
             class="max-w-[312px] max-h-[175px] lg:max-w-[996px] lg:max-h-[560px] md:max-w-[590px] md:max-h-[332px] rounded-2xl mb-7"
           >
-          </iframe>
+          </Video>
         </div>
       </div>
     </div>

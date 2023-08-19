@@ -44,6 +44,7 @@ export default function Sponsors({ sponsors, interval = 0 }: Props) {
                   width={240}
                   height={60}
                   loading="lazy"
+                  class="object-contain object-center w-[240px] h-[60px]"
                 />
               ))}
             </div>
