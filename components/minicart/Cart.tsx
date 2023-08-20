@@ -29,14 +29,14 @@ function Cart() {
           <>
             <div class="flex flex-col gap-6">
               <span class="font-medium text-2xl">Sua sacola está vazia</span>
-              <Button
-                class="btn-outline"
+              <button
+                class="text-pink underline cursor-pointer"
                 onClick={() => {
                   displayCart.value = false;
                 }}
               >
-                Escolher produtos
-              </Button>
+                Continue shopping
+              </button>
             </div>
           </>
         )

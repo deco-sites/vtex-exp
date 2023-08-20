@@ -19,6 +19,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
         height="100%"
         sizes="100vw, 100vh"
         style={`background-image: url(${backgroundImage});`}
+        preload="true"
         loading={lcp ? "eager" : "lazy"}
       >
         <div class="hero-overlay bg-gradient-to-b from-[#12264400] to-darkslategray w-screen mix-blend-multiply" />
