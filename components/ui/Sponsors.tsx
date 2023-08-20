@@ -23,15 +23,15 @@ export default function Sponsors({ sponsors, interval = 0 }: Props) {
   return (
     <section
       id={id}
-      class="flex items-center justify-center px-0 sm:px-5 w-full h-full"
+      class="flex items-center justify-center p-0 sm:p-5 w-full h-full bg-midnightblue"
     >
       <Slider class="carousel carousel-center gap-6 col-span-full row-start-2 row-end-5 h-full">
         {sponsors?.map((sponsor, index) => (
           <Slider.Item
             index={index}
-            class="carousel-item w-full flex flex-col gap-14 md:gap-8 items-center justify-center"
+            class="carousel-item w-full flex flex-col gap-14 md:gap-24 items-center justify-center"
           >
-            <div class="text-[32px] text-center flex flex-col md:flex-row gap-1 md:gap-3">
+            <div class="text-2xl md:text-[32px] text-center flex flex-col md:flex-row gap-1 md:gap-3">
               <span>Sponsors:</span>
               <span class="uppercase text-pink">{sponsor.title}</span>
             </div>

@@ -102,7 +102,7 @@
   }
 
   .info-image-rotate-2 {
-    transform: translateX(63%) rotate(180deg);
+    transform: scaleX(-1) scaleY(-1) translateX(-88%);
   }
 
   .info-image-rotate-3-md {

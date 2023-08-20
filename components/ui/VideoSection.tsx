@@ -11,7 +11,7 @@ export interface Props {
 
 export default function ({ title, subTitle, video }: Props) {
   return (
-    <div class="h-full w-full">
+    <div class="h-full w-full bg-midnightblue">
       <div class="flex items-center justify-center text-center w-full">
         <div class="min-h-[116px] max-w-[345px] lg:max-w-[936px] md:max-w-[750px] flex flex-col text-center space-y-7 mt-20 m-2">
           <h1 class="">

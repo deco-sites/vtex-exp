@@ -70,7 +70,7 @@ function MobileCarousel({ cards, interval }: Props) {
 
 export default function TicketsBuy({ cards, interval }: Props) {
   return (
-    <div class="w-full h-[720px] lg:h-full py-20">
+    <div class="w-full h-[720px] lg:h-full py-20 bg-midnightblue">
       <div class="text-4xl text-white text-center m-7">
         <h1>
           Tickets

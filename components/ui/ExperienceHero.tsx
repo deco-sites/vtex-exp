@@ -46,7 +46,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
             />
           </div>
 
-          <div class="flex flex-col max-w-[480px] items-start gap-11 h-full">
+          <div class="flex flex-col max-w-[480px] items-start gap-11 h-full w-full">
             <div class="flex flex-col w-full gap-5">
               <div class="flex flex-col gap-2 leading-tight tracking-wide font-semibold">
                 <h1 class="text-2xl">VTEX Experience - US</h1>
@@ -64,7 +64,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
               </p>
             </div>
 
-            <div class="flex items-start justify-center gap-6">
+            <div class="flex items-start justify-center gap-6 w-full md:w-auto">
               <TicketSeller />
               <TicketSeller />
             </div>
