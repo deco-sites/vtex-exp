@@ -24,7 +24,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
       >
         <div class="hero-overlay bg-gradient-to-b from-[#12264400] to-darkslategray w-screen mix-blend-multiply" />
 
-        <div class="flex flex-col text-white pt-32 px-4 lg:pl-32 space-y-24 2xl:space-y-28 w-screen h-full z-10 relative pb-4">
+        <div class="flex flex-col text-white pt-32 px-4 lg:pl-14 xl:pl-32 space-y-24 2xl:space-y-28 w-screen h-full z-10 relative pb-4">
           {/* Breadcrumb */}
           <div class="animate-slide-right">
             <Breadcrumb
