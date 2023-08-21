@@ -17,7 +17,7 @@ export default function ComponentTicketBuy({ image, title }: Props) {
     <div class="flex flex-col text-center w-[294px] h-[392px] md:h-auto bg-gradient-to-b from-darkgray/20 to-darkgray/40 rounded-xl backdrop-blur-xl bg-opacity-20 items-center justify-center p-4">
       <div class="flex flex-col gap-0.5 w-full items-center justify-center pt-16 md:pt-0">
         <div class="p-4">
-          <div class="">
+          <div>
             {image && (
               <Image
                 width={image.width}
@@ -30,8 +30,8 @@ export default function ComponentTicketBuy({ image, title }: Props) {
           </div>
         </div>
 
-        <div class="text-3xl text-white ">
-          <span class="">{title}</span>
+        <div class="text-3xl text-white">
+          <span>{title}</span>
         </div>
 
         <span class="text-lightsteelblue text-xs mb-8">
@@ -39,15 +39,15 @@ export default function ComponentTicketBuy({ image, title }: Props) {
         </span>
       </div>
       <div class="space-x-0.5">
-        <div class="">
+        <div>
           <span class="text-sm text-pink">SECOND BATCH</span>
         </div>
-        <div class="">
+        <div>
           <span class="text-3xl text-white">USD $ 0,000</span>
         </div>
       </div>
 
-      <div class="m-10">
+      <div class="my-10">
         <QuantitySelector quantity={1} />
       </div>
 
