@@ -6,28 +6,54 @@ export interface Props {
 }
 
 export default function Schedule({ schedules }: Props) {
+  function handleScroll() {
+    document.addEventListener("scroll", () => {
+      const schedule = document.getElementById(
+        "schedule",
+      );
+
+      if (schedule) {
+        const { top, bottom } = schedule.getBoundingClientRect();
+        const isVisible = top < window.innerHeight && bottom >= 0;
+
+        if (isVisible) {
+          schedule.classList.add("animate-slide-bottom");
+        }
+      }
+    });
+  }
+
   return (
-    <section class="flex items-center justify-center w-full h-full bg-midnightblue py-12">
-      <div class="w-full max-w-[80%] px-2 md:px-0">
-        <div class="flex flex-col bg-darkslategray/70 w-full h-full py-4 px-4 md:px-12 rounded-xl gap-8">
-          <h1 class="text-xl text-white text-center">Agenda</h1>
+    <>
+      <section class="flex items-center justify-center w-full h-full bg-midnightblue py-12">
+        <div class="w-full max-w-[80%] px-2 md:px-0">
+          <div
+            id="schedule"
+            class="flex flex-col bg-darkslategray/70 w-full h-full py-4 px-4 md:px-12 rounded-xl gap-8"
+          >
+            <h1 class="text-xl text-white text-center">Agenda</h1>
 
-          <div class="flex items-start justify-start gap-x-3 w-full min-h-[410px] overflow-auto pb-3 scrollbar">
-            {schedules?.map((schedule) => <ScheduleInfo {...schedule} />)}
-          </div>
+            <div class="flex items-start justify-start gap-x-3 w-full min-h-[410px] overflow-auto pb-3 scrollbar">
+              {schedules?.map((schedule) => <ScheduleInfo {...schedule} />)}
+            </div>
 
-          <div class="flex flex-col pt-8 gap-1">
-            <p class="text-pink text-sm">
-              *Agenda subject to changes without prior notice
-            </p>
-            <p class="text-darkgray text-sm">
-              * The VTEX party is organized by the US team invited Experience
-              customers. So have other sponsors at that time.
-            </p>
-            <p class="text-darkgray text-sm">**Optional</p>
+            <div class="flex flex-col pt-8 gap-1">
+              <p class="text-pink text-sm">
+                *Agenda subject to changes without prior notice
+              </p>
+              <p class="text-darkgray text-sm">
+                * The VTEX party is organized by the US team invited Experience
+                customers. So have other sponsors at that time.
+              </p>
+              <p class="text-darkgray text-sm">**Optional</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <script
+        dangerouslySetInnerHTML={{ __html: `(${handleScroll.toString()})()` }}
+      />
+    </>
   );
 }

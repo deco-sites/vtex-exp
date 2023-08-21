@@ -24,9 +24,9 @@ export default function Hero({ backgroundImage, lcp }: Props) {
       >
         <div class="hero-overlay bg-gradient-to-b from-[#12264400] to-darkslategray w-screen mix-blend-multiply" />
 
-        <div class="flex flex-col text-white pt-32 px-4 lg:pl-32 space-y-24 2xl:space-y-28 w-screen h-full z-10 relative pb-4">
+        <div class="flex flex-col text-white pt-32 px-4 lg:pl-14 xl:pl-32 space-y-24 2xl:space-y-28 w-screen h-full z-10 relative pb-4">
           {/* Breadcrumb */}
-          <div>
+          <div class="animate-slide-right">
             <Breadcrumb
               itemListElement={[{
                 name: "US - January",
@@ -48,7 +48,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
           </div>
 
           <div class="flex flex-col max-w-[480px] items-start gap-11 h-full w-full">
-            <div class="flex flex-col w-full gap-5">
+            <div class="flex flex-col w-full gap-5 animate-slide-left">
               <div class="flex flex-col gap-2 leading-tight tracking-wide font-semibold">
                 <h1 class="text-2xl">VTEX Experience - US</h1>
                 <h2 class="text-[40px] sm:text-[50px]">NRF 2023</h2>
@@ -65,7 +65,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
               </p>
             </div>
 
-            <div class="flex items-start justify-center gap-6 w-full md:w-auto">
+            <div class="flex items-start justify-center gap-6 w-full md:w-auto animate-slide-bottom">
               <TicketSeller />
               <TicketSeller />
             </div>
@@ -77,7 +77,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
                 width={1280}
                 height={800}
                 src={asset("/mask-gradient.webp")}
-                class="bg-no-repeat bg-contain w-[278px] h-[243px] lg:w-[522px] lg:h-[456px] 2xl:w-[600px] 2xl:h-[512px]"
+                class="bg-no-repeat bg-contain w-[278px] h-[243px] lg:w-[522px] lg:h-[456px] 2xl:w-[600px] 2xl:h-[512px] animate-slide-left"
               />
             </div>
 
@@ -88,7 +88,7 @@ export default function Hero({ backgroundImage, lcp }: Props) {
                 width={1280}
                 height={800}
                 src={asset("/mask-gradient.webp")}
-                class="bg-no-repeat bg-contain w-[260px] h-[227px] lg:w-[409px] lg:h-[357px]"
+                class="bg-no-repeat bg-contain w-[260px] h-[227px] lg:w-[409px] lg:h-[357px] animate-slide-top"
               />
             </div>
           </div>

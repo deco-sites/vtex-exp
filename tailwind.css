@@ -105,6 +105,22 @@
     transform: scaleX(-1) scaleY(-1) translateX(-88%);
   }
 
+  .tickets-buy-gradient {
+    transform: translateX(-58%);
+  }
+
+  .tickets-buy-gradient-2 {
+    transform: scaleX(-1) translateX(-88%);
+  }
+
+  .tickets-buy-gradient-2-xl {
+    transform: scaleX(-1) translateX(-125%);
+  }
+
+  .tickets-buy-gradient-2-2xl {
+    transform: scaleX(-1) translateX(-170%);
+  }
+
   .info-image-rotate-3-md {
     transform: translateX(-62%) translateY(-28%);
   }

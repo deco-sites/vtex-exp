@@ -13,7 +13,7 @@ export interface Props {
     }>;
   }[];
 
-  image: {
+  image?: {
     link: LiveImage;
     description: string;
   };
@@ -33,14 +33,16 @@ export default function ContactUs(
     return (
       <div class="w-full h-full flex items-center justify-center lg:max-w-[80%] px-4 lg:px-0">
         <div class="flex flex-col justify-center md:justify-between min-w-full gap-7 md:gap-12 lg:flex-row-reverse md:flex-row">
-          <Image
-            class="translate-x-[-60px] md:w-[336px] md:h-[298px] lg:w-[512px] lg:h-[452px] hidden md:block"
-            loading="lazy"
-            src={image.link}
-            alt={image.description}
-            width={512}
-            height={452}
-          />
+          {image && (
+            <Image
+              class="translate-x-[-60px] md:w-[336px] md:h-[298px] lg:w-[512px] lg:h-[452px] hidden md:block"
+              loading="lazy"
+              src={image.link}
+              alt={image.description}
+              width={512}
+              height={452}
+            />
+          )}
           <div class="flex flex-col justify-center lg:justify-start text-center lg:text-start gap-5 lg:gap-3 lg:max-w-[500px]">
             {html &&
               (
@@ -50,14 +52,16 @@ export default function ContactUs(
                 />
               )}
             {/* mobile */}
-            <Image
-              class="md:hidden block"
-              loading="lazy"
-              src={image.link}
-              alt={image.description}
-              width={512}
-              height={452}
-            />
+            {image && (
+              <Image
+                class="md:hidden block"
+                loading="lazy"
+                src={image.link}
+                alt={image.description}
+                width={512}
+                height={452}
+              />
+            )}
             <form class="flex justify-center lg:justify-end ">
               <div class="flex flex-col w-full gap-8 lg:gap-10">
                 {forms?.map((item) => (
