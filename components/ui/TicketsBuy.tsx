@@ -5,11 +5,18 @@ import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 
 import { useId } from "$store/sdk/useId.ts";
+import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
+import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import { useOffer } from "$store/sdk/useOffer.ts";
 
-import type { Props as CardProps } from "deco-sites/vtex-exp/components/ui/ComponentTicketBuy.tsx";
+import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Props as CardProps } from "$store/components/ui/ComponentTicketBuy.tsx";
+
+export type IIcon = Pick<CardProps, "iconImage">;
 
 export interface Props {
-  cards?: CardProps[];
+  cards?: Product[] | null;
+  icons?: IIcon;
   interval?: number;
 }
 
@@ -43,7 +50,7 @@ function Dots({ cards, interval = 0 }: Props) {
   );
 }
 
-function MobileCarousel({ cards, interval }: Props) {
+function MobileCarousel({ cards, interval, icons }: Props) {
   const id = useId();
 
   return (
@@ -57,7 +64,7 @@ function MobileCarousel({ cards, interval }: Props) {
             index={index}
             class="carousel-item w-full flex items-center justify-center"
           >
-            <ComponentTicketBuy {...card} />
+            <ComponentTicketBuy iconImage={icons?.iconImage} product={card} />
           </Slider.Item>
         ))}
       </Slider>
@@ -69,7 +76,11 @@ function MobileCarousel({ cards, interval }: Props) {
   );
 }
 
-export default function TicketsBuy({ cards, interval }: Props) {
+export default function TicketsBuy({ cards, interval, icons }: Props) {
+  if (!cards || cards.length === 0) {
+    return null;
+  }
+
   return (
     <div class="w-full h-[720px] lg:h-full py-20 bg-midnightblue relative lg:overflow-hidden">
       <div class="absolute w-[50%] inset-0 translate-y-[75%] translate-x-1/2 gradient opacity-40" />
@@ -100,13 +111,29 @@ export default function TicketsBuy({ cards, interval }: Props) {
 
       <>
         {/* Mobile */}
-        <MobileCarousel cards={cards} interval={interval} />
+        <MobileCarousel cards={cards} interval={interval} icons={icons} />
 
         {/* Desktop */}
         <div class="hidden md:flex items-center justify-center gap-6">
-          {cards?.map((card) => <ComponentTicketBuy {...card} />)}
+          {cards?.map((card) => (
+            <ComponentTicketBuy product={card} iconImage={icons?.iconImage} />
+          ))}
         </div>
       </>
+      <SendEventOnLoad
+        event={{
+          name: "view_item_list",
+          params: {
+            item_list_name: "TicketsBuy",
+            items: cards.map((product) =>
+              mapProductToAnalyticsItem({
+                product,
+                ...(useOffer(product.offers)),
+              })
+            ),
+          },
+        }}
+      />
     </div>
   );
 }

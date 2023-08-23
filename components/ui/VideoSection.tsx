@@ -1,3 +1,4 @@
+import { asset } from "$fresh/runtime.ts";
 import Video from "deco-sites/std/components/Video.tsx";
 
 import type { HTML } from "deco-sites/std/components/HTMLRenderer.tsx";
@@ -29,8 +30,26 @@ export default function ({ title, subTitle, video }: Props) {
 
   return (
     <>
-      <div class="h-full w-full bg-gradient-to-b from-[#141e2d] to-midnightblue">
-        <div class="flex items-center justify-center text-center w-full animate-slide-bottom">
+      <div class="h-full w-full bg-gradient-to-b from-[#141e2d] to-midnightblue overflow-hidden">
+        <div class="flex items-center justify-center text-center relative w-full animate-slide-bottom">
+          <img
+            loading="lazy"
+            alt="Gradient"
+            width={771}
+            height={738}
+            src={asset("/gradient-vsection-1.webp")}
+            class="hidden md:translate-x-[-39.5%] md:translate-y-[74%] lg:translate-x-[-39.5%] lg:translate-y-[74%] lg:block absolute video-section-gradient-2xl inset-0 bg-no-repeat bg-cover w-[644px] h-[617px]"
+          />
+
+          <img
+            loading="lazy"
+            alt="Gradient"
+            width={771}
+            height={738}
+            src={asset("/gradient-vsection-2.webp")}
+            class="hidden lg:translate-x-[138%] lg:translate-y-[72%] md:translate-x-[200%] md:translate-y-[72%]  lg:block absolute video-section-gradient-2-2xl inset-0 bg-no-repeat bg-cover w-[644px] h-[617px]"
+          />
+
           <div class="min-h-[116px] max-w-[345px] lg:max-w-[936px] md:max-w-[750px] flex flex-col text-center space-y-7 mt-20 m-2">
             <h1 class="">
               {title && (

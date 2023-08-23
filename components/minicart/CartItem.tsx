@@ -47,27 +47,31 @@ function CartItem({ index, locale, currency }: Props) {
 
   return (
     <div
-      class="grid grid-rows-1 gap-2"
+      class="grid grid-rows-1 gap-4"
       style={{
         gridTemplateColumns: "auto 1fr",
       }}
     >
       <Image
-        style={{ aspectRatio: "108 / 150" }}
+        style={{ aspectRatio: "72 / 72" }}
         src={imageUrl}
         alt={skuName}
-        width={108}
-        height={150}
-        class="h-full object-contain"
+        width={72}
+        height={72}
+        class="w-[72px] h-[72px] object-cover object-center rounded-xl"
       />
 
       <div class="flex flex-col gap-2">
-        <div class="flex justify-between items-center">
-          <span>{name}</span>
+        <div class="flex justify-between items-start">
+          <div class="flex flex-col items-start">
+            <span class="text-sm text-darkgray">VTEX</span>
+            <h1 class="text-white text-lg">{name}</h1>
+            <h1 class="text-white">Package 2 - Bruno Nunes</h1>
+          </div>
           <Button
             disabled={loading.value || isGift}
             loading={loading.value}
-            class="btn-ghost btn-square"
+            class="btn-square text-pink"
             onClick={withLoading(async () => {
               await updateItems({ orderItems: [{ index, quantity: 0 }] });
               if (!cart.value) return;
@@ -85,18 +89,16 @@ function CartItem({ index, locale, currency }: Props) {
             <Icon id="Trash" size={24} />
           </Button>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="line-through text-base-300 text-sm">
-            {formatPrice(listPrice / 100, currency, locale)}
-          </span>
-          <span class="text-sm text-secondary">
+        <div class="flex items-center">
+          <span class="text-white">
             {isGift
               ? "Grátis"
               : formatPrice(sellingPrice / 100, currency, locale)}
           </span>
         </div>
 
-        <QuantitySelector
+        {
+          /* <QuantitySelector
           disabled={loading.value || isGift}
           quantity={quantity}
           onChange={withLoading(async (quantity) => {
@@ -118,7 +120,8 @@ function CartItem({ index, locale, currency }: Props) {
               },
             });
           })}
-        />
+        /> */
+        }
       </div>
     </div>
   );

@@ -6,7 +6,6 @@ import { useUI } from "$store/sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
 import Coupon from "./Coupon.tsx";
 import SellerCode from "./SellerCode.tsx";
-import FreeShippingProgressBar from "./FreeShippingProgressBar.tsx";
 
 function Cart() {
   const { displayCart } = useUI();
@@ -28,7 +27,7 @@ function Cart() {
         ? (
           <>
             <div class="flex flex-col gap-6">
-              <span class="font-medium text-2xl">Sua sacola está vazia</span>
+              <span class="font-medium text-2xl">Your cart is empty</span>
               <button
                 class="text-pink underline cursor-pointer"
                 onClick={() => {
@@ -42,23 +41,13 @@ function Cart() {
         )
         : (
           <>
-            {/* Free Shipping Bar */}
-            <div class="px-2 py-4 w-full">
-              <FreeShippingProgressBar
-                total={total / 100}
-                target={1000}
-                locale={locale!}
-                currency={currencyCode!}
-              />
-            </div>
-
             {/* Cart Items */}
             <ul
               role="list"
-              class="mt-6 px-2 flex-grow overflow-y-auto flex flex-col gap-6 w-full"
+              class="mt-6 px-5 flex-grow overflow-y-auto flex flex-col gap-6 w-full"
             >
               {cart.value.items.map((_, index) => (
-                <li key={index}>
+                <li key={index} class="border-b border-darkgray/30 pb-6">
                   <CartItem
                     index={index}
                     currency={currencyCode!}
@@ -69,67 +58,67 @@ function Cart() {
             </ul>
 
             {/* Cart Footer */}
-            <footer class="w-full">
-              {/* Subtotal */}
-              <div class="border-t border-base-200 py-2 flex flex-col">
-                {discounts > 0 && (
-                  <div class="flex justify-between items-center px-4">
-                    <span class="text-sm">Descontos</span>
-                    <span class="text-sm">
-                      {formatPrice(discounts / 100, currencyCode!, locale)}
-                    </span>
-                  </div>
-                )}
-                <div class="w-full flex justify-between px-4 text-sm">
+            <footer class="flex flex-col gap-5 w-full px-5 pb-6">
+              <div class="flex items-center justify-center w-full">
+                <button
+                  class="text-pink underline cursor-pointer"
+                  onClick={() => {
+                    displayCart.value = false;
+                  }}
+                >
+                  Continue shopping
+                </button>
+              </div>
+
+              <div class="flex flex-col items-center justify-center rounded-xl bg-gradient-to-b from-darkgray/20 to-darkgray/40 gap-3 px-9 py-6">
+                {/* Subtotal */}
+                <div class="w-full flex justify-between">
                   <span>Subtotal</span>
-                  <span class="px-4">
+                  <span class="text-white">
                     {total
                       ? formatPrice(total / 100, currencyCode!, locale)
                       : ""}
                   </span>
                 </div>
-                <Coupon />
-                <SellerCode />
-              </div>
 
-              {/* Total */}
-              <div class="border-t border-base-200 pt-4 flex flex-col justify-end items-end gap-2 mx-4">
-                <div class="flex justify-between items-center w-full">
-                  <span>Total</span>
-                  <span class="font-medium text-xl">
-                    {formatPrice(total / 100, currencyCode!, locale)}
+                {/* Total */}
+                <div class="w-full flex justify-between font-bold">
+                  <span>Subtotal</span>
+                  <span class="text-white">
+                    {total
+                      ? formatPrice(total / 100, currencyCode!, locale)
+                      : ""}
                   </span>
                 </div>
-                <span class="text-sm text-base-300">
-                  Taxas e fretes serão calculados no checkout
-                </span>
-              </div>
 
-              <div class="p-4">
-                <a class="inline-block w-full" href="/checkout">
-                  <Button
-                    data-deco="buy-button"
-                    class="btn-primary btn-block"
-                    disabled={loading.value || cart.value.items.length === 0}
-                    onClick={() => {
-                      sendEvent({
-                        name: "begin_checkout",
-                        params: {
-                          currency: cart.value ? currencyCode! : "",
-                          value: (total - discounts) / 100,
-                          coupon: cart.value?.marketingData?.coupon ??
-                            undefined,
-
-                          items: cart.value
-                            ? mapItemsToAnalyticsItems(cart.value)
-                            : [],
-                        },
-                      });
-                    }}
+                <div class="w-full">
+                  <a
+                    class="flex items-center justify-center w-full bg-pink text-black font-bold py-3 cursor-pointer rounded-xl hover:scale-105 duration-150 transition"
+                    href="/checkout"
                   >
-                    Fechar pedido
-                  </Button>
-                </a>
+                    <Button
+                      data-deco="buy-button"
+                      disabled={loading.value || cart.value.items.length === 0}
+                      onClick={() => {
+                        sendEvent({
+                          name: "begin_checkout",
+                          params: {
+                            currency: cart.value ? currencyCode! : "",
+                            value: (total - discounts) / 100,
+                            coupon: cart.value?.marketingData?.coupon ??
+                              undefined,
+
+                            items: cart.value
+                              ? mapItemsToAnalyticsItems(cart.value)
+                              : [],
+                          },
+                        });
+                      }}
+                    >
+                      Go to cart
+                    </Button>
+                  </a>
+                </div>
               </div>
             </footer>
           </>
