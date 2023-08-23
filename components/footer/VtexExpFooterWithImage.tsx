@@ -18,7 +18,7 @@ export interface Props {
 
 export default function Footer({ logos, links, contactUs }: Props) {
   return (
-    <section class="flex flex-col bg-darkslategray w-full h-full pt-24 pb-12 gap-28 relative">
+    <section class="flex flex-col bg-darkslategray w-full h-full pt-24 pb-12 gap-20 relative">
       <div class="flex items-center justify-center w-full">
         <ContactUs {...contactUs} />
       </div>

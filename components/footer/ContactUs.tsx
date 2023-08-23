@@ -35,7 +35,7 @@ export default function ContactUs(
         <div class="flex flex-col justify-center md:justify-between min-w-full gap-7 md:gap-12 lg:flex-row-reverse md:flex-row">
           {image && (
             <Image
-              class="translate-x-[-60px] md:w-[336px] md:h-[298px] lg:w-[512px] lg:h-[452px] hidden md:block"
+              class="translate-x-[-60px] md:w-[336px] md:h-[298px] xl:w-[512px] xl:h-[452px] hidden md:block lg:translate-x-0"
               loading="lazy"
               src={image.link}
               alt={image.description}
@@ -43,7 +43,7 @@ export default function ContactUs(
               height={452}
             />
           )}
-          <div class="flex flex-col justify-center lg:justify-start text-center lg:text-start gap-5 lg:gap-3 lg:max-w-[500px]">
+          <div class="flex flex-1 flex-col justify-center lg:justify-start text-center lg:text-start gap-5 lg:gap-3 lg:max-w-[500px]">
             {html &&
               (
                 <div
@@ -62,7 +62,7 @@ export default function ContactUs(
                 height={452}
               />
             )}
-            <form class="flex justify-center lg:justify-end ">
+            <form class="flex justify-center lg:justify-end">
               <div class="flex flex-col w-full gap-8 lg:gap-10">
                 {forms?.map((item) => (
                   <div
