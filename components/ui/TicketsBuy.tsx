@@ -1,12 +1,12 @@
 import { asset } from "$fresh/runtime.ts";
 
-import ComponentTicketBuy from "$store/components/ui/ComponentTicketBuy.tsx";
+import ComponentTicketBuy from "deco-sites/vtex-exp/components/ui/ComponentTicketBuy.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 
 import { useId } from "$store/sdk/useId.ts";
 
-import type { Props as CardProps } from "$store/components/ui/ComponentTicketBuy.tsx";
+import type { Props as CardProps } from "deco-sites/vtex-exp/components/ui/ComponentTicketBuy.tsx";
 
 export interface Props {
   cards?: CardProps[];
@@ -49,13 +49,13 @@ function MobileCarousel({ cards, interval }: Props) {
   return (
     <div
       id={id}
-      class="flex flex-col items-center justify-center px-0 sm:px-5 md:hidden w-full h-full gap-3"
+      class="flex flex-col items-center justify-center px-0 sm:px-5 md:hidden w-full h-full"
     >
       <Slider class="carousel carousel-center gap-6 w-full h-full">
         {cards?.map((card, index) => (
           <Slider.Item
             index={index}
-            class="carousel-item w-full min-h-full flex items-center justify-center"
+            class="carousel-item w-full flex items-center justify-center"
           >
             <ComponentTicketBuy {...card} />
           </Slider.Item>
@@ -70,74 +70,43 @@ function MobileCarousel({ cards, interval }: Props) {
 }
 
 export default function TicketsBuy({ cards, interval }: Props) {
-  function handleScroll() {
-    document.addEventListener("scroll", () => {
-      const ticketsElement = document.getElementById(
-        "tickets-element",
-      );
-
-      const ticketsTitle = document.getElementById(
-        "tickets-buy-title",
-      );
-
-      if (ticketsElement && ticketsTitle) {
-        const { top, bottom } = ticketsElement.getBoundingClientRect();
-        const isVisible = top < window.innerHeight && bottom >= 0;
-
-        if (isVisible) {
-          ticketsElement.classList.add("animate-slide-bottom");
-          ticketsTitle.classList.add("animate-slide-top");
-        }
-      }
-    });
-  }
-
   return (
-    <>
-      <div class="w-full h-[720px] lg:h-full py-20 lg:py-56 bg-midnightblue relative lg:overflow-hidden">
-        <div class="absolute w-[50%] inset-0 translate-y-[75%] translate-x-1/2 gradient opacity-40" />
+    <div class="w-full h-[720px] lg:h-full py-20 bg-midnightblue relative lg:overflow-hidden">
+      <div class="absolute w-[50%] inset-0 translate-y-[75%] translate-x-1/2 gradient opacity-40" />
 
-        <img
-          loading="lazy"
-          alt="Gradient"
-          width={771}
-          height={738}
-          src={asset("/mask-gradient-2.webp")}
-          class="hidden lg:block absolute inset-0 bg-no-repeat bg-cover w-[771px] h-[738px] tickets-buy-gradient"
-        />
+      <img
+        loading="lazy"
+        alt="Gradient"
+        width={771}
+        height={738}
+        src={asset("/mask-gradient-2.webp")}
+        class="hidden lg:block absolute inset-0 bg-no-repeat bg-cover w-[771px] h-[738px] tickets-buy-gradient"
+      />
 
-        <img
-          loading="lazy"
-          alt="Gradient"
-          width={771}
-          height={738}
-          src={asset("/mask-gradient-2.webp")}
-          class="hidden lg:block absolute inset-0 bg-no-repeat bg-cover w-[771px] h-[738px] tickets-buy-gradient-2 xl:tickets-buy-gradient-2-xl 2xl:tickets-buy-gradient-2-2xl"
-        />
+      <img
+        loading="lazy"
+        alt="Gradient"
+        width={771}
+        height={738}
+        src={asset("/mask-gradient-2.webp")}
+        class="hidden lg:block absolute inset-0 bg-no-repeat bg-cover w-[771px] h-[738px] tickets-buy-gradient-2 xl:tickets-buy-gradient-2-xl 2xl:tickets-buy-gradient-2-2xl"
+      />
 
-        <div
-          id="tickets-buy-title"
-          class="text-[40px] text-white text-center lg:pb-7"
-        >
-          <h1>
-            Tickets
-          </h1>
-        </div>
-
-        <div id="tickets-element">
-          {/* Mobile */}
-          <MobileCarousel cards={cards} interval={interval} />
-
-          {/* Desktop */}
-          <div class="hidden md:flex items-center justify-center gap-6">
-            {cards?.map((card) => <ComponentTicketBuy {...card} />)}
-          </div>
-        </div>
+      <div class="text-4xl text-white text-center lg:pb-7">
+        <h1>
+          Tickets
+        </h1>
       </div>
 
-      <script
-        dangerouslySetInnerHTML={{ __html: `(${handleScroll.toString()})()` }}
-      />
-    </>
+      <>
+        {/* Mobile */}
+        <MobileCarousel cards={cards} interval={interval} />
+
+        {/* Desktop */}
+        <div class="hidden md:flex items-center justify-center gap-6">
+          {cards?.map((card) => <ComponentTicketBuy {...card} />)}
+        </div>
+      </>
+    </div>
   );
 }
