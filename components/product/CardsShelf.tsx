@@ -8,9 +8,10 @@ import { useId } from "$store/sdk/useId.ts";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
+import type { Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Props {
-  cards: CardProps[];
+  products: Product[] | null;
   title?: string;
   description?: string;
   layout?: {
@@ -20,14 +21,14 @@ export interface Props {
 }
 
 function CardsShelf({
-  cards,
+  products,
   title,
   description,
   layout,
 }: Props) {
   const id = useId();
 
-  if (!cards || cards.length === 0) {
+  if (!products || products.length === 0) {
     return null;
   }
 
@@ -64,12 +65,12 @@ function CardsShelf({
           class="container grid grid-cols-[48px_1fr_48px] px-0 sm:px-5 h-full"
         >
           <Slider class="inline-grid justify-center lg:justify-stretch lg:carousel lg:carousel-center gap-14 lg:gap-6 col-span-full row-start-2 row-end-5 h-full">
-            {cards?.map((card, index) => (
+            {products?.map((card, index) => (
               <Slider.Item
                 index={index}
                 class="lg:carousel-item w-full md:w-[495px] lg:w-[390px] lg:h-[90%] lg:first:pl-6 lg:last:pr-6"
               >
-                <Card {...card} />
+                <Card product={card} />
               </Slider.Item>
             ))}
           </Slider>
@@ -87,22 +88,20 @@ function CardsShelf({
             </div>
           </>
           <SliderJS rootId={id} />
-          {
-            /* <SendEventOnLoad
-          event={{
-            name: "view_item_list",
-            params: {
-              item_list_name: title,
-              items: products.map((product) =>
-                mapProductToAnalyticsItem({
-                  product,
-                  ...(useOffer(product.offers)),
-                })
-              ),
-            },
-          }}
-        /> */
-          }
+          <SendEventOnLoad
+            event={{
+              name: "view_item_list",
+              params: {
+                item_list_name: title,
+                items: products.map((product) =>
+                  mapProductToAnalyticsItem({
+                    product,
+                    ...(useOffer(product.offers)),
+                  })
+                ),
+              },
+            }}
+          />
         </div>
       </div>
 

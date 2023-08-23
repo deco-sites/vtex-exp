@@ -1,5 +1,7 @@
 export interface CardProps {
   info: string;
+  height?: number;
+  hasCrimsonBorder?: boolean;
 }
 
 export interface Props {
@@ -8,9 +10,14 @@ export interface Props {
   cards?: CardProps[];
 }
 
-function ScheduleCard({ info }: CardProps) {
+function ScheduleCard({ info, hasCrimsonBorder, height = 118 }: CardProps) {
   return (
-    <div class="rounded-xl flex items-center justify-center text-center text-sm border border-lightsteelblue text-white w-[124px] min-h-[118px] py-1 px-2">
+    <div
+      style={{ minHeight: `${height}px` }}
+      class={`${
+        hasCrimsonBorder ? "border-crimson" : "border-lightsteelblue"
+      } rounded-xl flex items-center justify-center text-center text-sm border text-white w-[124px] py-1 px-2`}
+    >
       <span>{info}</span>
     </div>
   );
