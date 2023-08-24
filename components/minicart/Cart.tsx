@@ -4,8 +4,6 @@ import Button from "$store/components/ui/Button.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
-import Coupon from "./Coupon.tsx";
-import SellerCode from "./SellerCode.tsx";
 
 function Cart() {
   const { displayCart } = useUI();

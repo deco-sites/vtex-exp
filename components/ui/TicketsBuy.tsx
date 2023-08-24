@@ -1,5 +1,7 @@
 import { asset } from "$fresh/runtime.ts";
 
+import vtexProductList from "deco-sites/std/loaders/vtex/legacy/productList.ts";
+
 import ComponentTicketBuy from "deco-sites/vtex-exp/components/ui/ComponentTicketBuy.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
@@ -9,7 +11,8 @@ import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
+import type { Product, ProductLeaf } from "deco-sites/std/commerce/types.ts";
 import type { Props as CardProps } from "$store/components/ui/ComponentTicketBuy.tsx";
 
 export type IIcon = Pick<CardProps, "iconImage">;
@@ -20,7 +23,11 @@ export interface Props {
   interval?: number;
 }
 
-function Dots({ cards, interval = 0 }: Props) {
+function Dots(
+  { tickets, interval = 0 }: Omit<Props, "cards"> & {
+    tickets: (ProductLeaf[] | undefined)[];
+  },
+) {
   return (
     <>
       <style
@@ -35,7 +42,7 @@ function Dots({ cards, interval = 0 }: Props) {
         }}
       />
       <ul class="flex items-center justify-center gap-4 z-10 rounded-[5px] bg-midnightblue w-[90px] h-[10px]">
-        {cards?.map((_, index) => (
+        {tickets?.flat().map((_, index) => (
           <li class="carousel-item">
             <Slider.Dot index={index}>
               <div
@@ -50,7 +57,11 @@ function Dots({ cards, interval = 0 }: Props) {
   );
 }
 
-function MobileCarousel({ cards, interval, icons }: Props) {
+function MobileCarousel(
+  { tickets, interval, icons }: Omit<Props, "cards"> & {
+    tickets: (ProductLeaf[] | undefined)[];
+  },
+) {
   const id = useId();
 
   return (
@@ -59,17 +70,20 @@ function MobileCarousel({ cards, interval, icons }: Props) {
       class="flex flex-col items-center justify-center px-0 sm:px-5 md:hidden w-full h-full"
     >
       <Slider class="carousel carousel-center gap-6 w-full h-full">
-        {cards?.map((card, index) => (
+        {tickets?.flat().map((card, index) => (
           <Slider.Item
             index={index}
             class="carousel-item w-full flex items-center justify-center"
           >
-            <ComponentTicketBuy iconImage={icons?.iconImage} product={card} />
+            <ComponentTicketBuy
+              iconImage={icons?.iconImage}
+              product={card ?? null}
+            />
           </Slider.Item>
         ))}
       </Slider>
 
-      <Dots cards={cards} interval={interval} />
+      <Dots tickets={tickets} interval={interval} />
 
       <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>
@@ -80,6 +94,8 @@ export default function TicketsBuy({ cards, interval, icons }: Props) {
   if (!cards || cards.length === 0) {
     return null;
   }
+
+  const tickets = cards.map((card) => card.isVariantOf?.hasVariant);
 
   return (
     <div class="w-full h-[720px] lg:h-full py-20 bg-midnightblue relative lg:overflow-hidden">
@@ -111,13 +127,18 @@ export default function TicketsBuy({ cards, interval, icons }: Props) {
 
       <>
         {/* Mobile */}
-        <MobileCarousel cards={cards} interval={interval} icons={icons} />
+        <MobileCarousel tickets={tickets} interval={interval} icons={icons} />
 
         {/* Desktop */}
-        <div class="hidden md:flex items-center justify-center gap-6">
-          {cards?.map((card) => (
-            <ComponentTicketBuy product={card} iconImage={icons?.iconImage} />
-          ))}
+        <div class="hidden md:flex items-center justify-center">
+          <div class="flex flex-wrap items-center justify-center max-w-5xl gap-10">
+            {tickets?.flat().map((card) => (
+              <ComponentTicketBuy
+                product={card ?? null}
+                iconImage={icons?.iconImage}
+              />
+            ))}
+          </div>
         </div>
       </>
       <SendEventOnLoad
@@ -137,3 +158,17 @@ export default function TicketsBuy({ cards, interval, icons }: Props) {
     </div>
   );
 }
+
+export const loader = async (props: Props, req: Request, ctx: Context) => {
+  const url = new URL(req.url);
+  const parts = url.href.split("/");
+  const term = parts[parts.length - 1];
+
+  const data = await vtexProductList(
+    { term: term !== "experiences" ? term.substring(0, 2) : "" },
+    req,
+    ctx,
+  );
+
+  return { ...props, cards: data };
+};

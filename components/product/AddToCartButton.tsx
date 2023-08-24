@@ -12,7 +12,7 @@ export interface Props extends UseAddToCartProps {
 }
 
 function AddToCartButton(
-  { skuId, sellerId, discount, price, productGroupId, name }: Props,
+  { skuId, sellerId, discount, price, productGroupId, name, quantity }: Props,
 ) {
   const props = useAddToCart({
     skuId,
@@ -21,6 +21,7 @@ function AddToCartButton(
     price,
     productGroupId,
     name,
+    quantity,
   });
 
   return (

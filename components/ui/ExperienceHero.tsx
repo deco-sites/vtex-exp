@@ -8,9 +8,15 @@ import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 export interface Props {
   backgroundImage: ImageType;
   lcp?: boolean;
+  event?: string;
+  title?: string;
+  date?: string;
+  description?: string;
 }
 
-export default function Hero({ backgroundImage, lcp }: Props) {
+export default function Hero(
+  { backgroundImage, lcp, event, title, description, date }: Props,
+) {
   return (
     <div class="w-full h-full">
       <div
@@ -30,17 +36,17 @@ export default function Hero({ backgroundImage, lcp }: Props) {
             <Breadcrumb
               itemListElement={[{
                 name: "US - January",
-                item: "/experiences-us-january",
+                item: "/experiences/us/us-january",
                 "@type": "ListItem",
                 position: 1,
               }, {
                 name: "BR - June",
-                item: "/experiences-br-june",
+                item: "/experiences/us/br-june",
                 "@type": "ListItem",
                 position: 2,
               }, {
                 name: "MX - September",
-                item: "/experiences-mx-september",
+                item: "/experiences/us/mx-september",
                 "@type": "ListItem",
                 position: 3,
               }]}
@@ -50,18 +56,19 @@ export default function Hero({ backgroundImage, lcp }: Props) {
           <div class="flex flex-col max-w-[480px] items-start gap-11 h-full w-full">
             <div class="flex flex-col w-full gap-5 animate-slide-left">
               <div class="flex flex-col gap-2 leading-tight tracking-wide font-semibold">
-                <h1 class="text-2xl">VTEX Experience - US</h1>
-                <h2 class="text-[40px] sm:text-[50px]">NRF 2023</h2>
+                <h1 class="text-2xl">{title ?? "VTEX Experience - US"}</h1>
+                <h2 class="text-[40px] sm:text-[50px]">
+                  {event ?? "NRF 2023"}
+                </h2>
               </div>
 
               <span class="text-xl sm:text-2xl text-pink">
-                January 13th to 19th
+                {date ?? "January 13th to 19th"}
               </span>
 
               <p class="sm:text-lg text-left leading-5">
-                In this upcoming edition, VTEX Experience introduces you to the
-                retail operation of the city with the most innovative ideas in
-                the market: New York!
+                {description ??
+                  "In this upcoming edition, VTEX Experience introduces you to the retail operation of the city with the most innovative ideas in the market: New York!"}
               </p>
             </div>
 

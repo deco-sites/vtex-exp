@@ -1,4 +1,3 @@
-import QuantitySelector from "./QuantitySelector.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 
 import { SendEventOnClick } from "$store/components/Analytics.tsx";
@@ -6,13 +5,14 @@ import { formatPrice } from "$store/sdk/format.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 
-import AddToCartButton from "$store/islands/AddToCartButton.tsx";
-
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { ProductLeaf } from "deco-sites/std/commerce/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
+import TicketBuySelector from "$store/islands/TicketBuySelector.tsx";
+
 export interface Props {
-  product: Product;
+  product: ProductLeaf | null;
+  productGroupID?: string;
   iconImage?: {
     icon: LiveImage;
     description?: string;
@@ -25,20 +25,20 @@ export interface Props {
 }
 
 export default function ComponentTicketBuy(
-  { product, iconImage, itemListName }: Props,
+  { product, iconImage, itemListName, productGroupID }: Props,
 ) {
+  if (!product) return null;
+
   const {
     url,
     productID,
     name,
     image: images,
     offers,
-    isVariantOf,
     description,
   } = product;
 
   const id = `product-card-${productID}`;
-  const productGroupID = isVariantOf?.productGroupID;
   const { listPrice, price, installments, seller, availability } = useOffer(
     offers,
   );
@@ -93,41 +93,20 @@ export default function ComponentTicketBuy(
         </div>
         <div>
           <span class="text-3xl text-white">
-            {formatPrice(price, offers!.priceCurrency!)}
+            {formatPrice(price, offers!.priceCurrency! ?? "BRL")}
           </span>
         </div>
       </div>
 
-      <div class="my-10">
-        <QuantitySelector quantity={1} />
-      </div>
-
-      <div class="flex justify-around gap-8 pb-10 md:pb-0">
-        <span class="text-sm w-[87px] h-[30px]">
-          Previous<br />USD $ 0.000
-        </span>
-        <p class="text-sm text-darkgray w-[85px] h-[30px]">
-          Next<br />
-          <span class="text-pink">USD $ 0.000</span>
-        </p>
-      </div>
-
-      <div>
-        {availability === "https://schema.org/InStock" && (
-          <>
-            {seller && (
-              <AddToCartButton
-                name={name ?? ""}
-                skuId={productID}
-                sellerId={seller}
-                productGroupId={productGroupID ?? ""}
-                discount={price && listPrice ? listPrice - price : 0}
-                price={price ?? 0}
-              />
-            )}
-          </>
-        )}
-      </div>
+      <TicketBuySelector
+        name={name ?? ""}
+        productID={productID}
+        availability={availability ?? ""}
+        seller={seller ?? ""}
+        listPrice={listPrice}
+        productGroupID={productGroupID ?? ""}
+        price={price ?? 0}
+      />
     </div>
   );
 }
