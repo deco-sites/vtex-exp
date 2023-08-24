@@ -23,7 +23,7 @@ import * as $$$$$$$$10 from "./sections/Content/Logos.tsx";
 import * as $$$$$$$$11 from "./sections/Content/Schedule.tsx";
 import * as $$$$$$$$12 from "./sections/Content/Sponsors.tsx";
 import * as $$$$$$$$13 from "./sections/Content/Testimonials.tsx";
-import * as $$$$$$$$14 from "./sections/Content/TIcketsBuy.tsx";
+import * as $$$$$$$$14 from "./sections/Content/TicketsBuy.tsx";
 import * as $$$$$$$$15 from "./sections/Content/VideoSection.tsx";
 import * as $$$$$$$$16 from "./sections/Footer/Footer.tsx";
 import * as $$$$$$$$17 from "./sections/Footer/FooterWithImage.tsx";
@@ -227,7 +227,7 @@ const manifest = {
     "deco-sites/vtex-exp/sections/Content/Schedule.tsx": $$$$$$$$11,
     "deco-sites/vtex-exp/sections/Content/Sponsors.tsx": $$$$$$$$12,
     "deco-sites/vtex-exp/sections/Content/Testimonials.tsx": $$$$$$$$13,
-    "deco-sites/vtex-exp/sections/Content/TIcketsBuy.tsx": $$$$$$$$14,
+    "deco-sites/vtex-exp/sections/Content/TicketsBuy.tsx": $$$$$$$$14,
     "deco-sites/vtex-exp/sections/Content/VideoSection.tsx": $$$$$$$$15,
     "deco-sites/vtex-exp/sections/Footer/Footer.tsx": $$$$$$$$16,
     "deco-sites/vtex-exp/sections/Footer/FooterWithImage.tsx": $$$$$$$$17,

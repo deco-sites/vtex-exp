@@ -83,7 +83,9 @@ function MobileCarousel(
         ))}
       </Slider>
 
-      <Dots tickets={tickets} interval={interval} />
+      {tickets?.flat?.length !== 0 && (
+        <Dots tickets={tickets} interval={interval} />
+      )}
 
       <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>

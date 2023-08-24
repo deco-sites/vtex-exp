@@ -20,6 +20,9 @@ export default {
       "lightsteelblue": "#BCC5D1",
     },
     extend: {
+      screens: {
+        "3xl": "1900px",
+      },
       display: ["group-hover"],
       animation: {
         "slide-left": "slide-left-frame 1s ease normal",
