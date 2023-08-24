@@ -115,9 +115,12 @@ export default function InfoSection(
               <div class="flex md:hidden gap-6 pt-8">
                 {infos?.map((info) => <Info {...info} />)}
               </div>
-              <button class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-3 min-w-[142px] md:max-w-[142px] h-[48px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150 mt-11">
+              <a
+                href="#tickets"
+                class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-3 min-w-[142px] md:max-w-[142px] h-[48px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150 mt-11"
+              >
                 Buy now
-              </button>
+              </a>
             </div>
           </div>
 

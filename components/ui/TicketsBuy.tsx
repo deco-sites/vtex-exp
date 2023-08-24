@@ -100,7 +100,10 @@ export default function TicketsBuy({ cards, interval, icons }: Props) {
   const tickets = cards.map((card) => card.isVariantOf?.hasVariant);
 
   return (
-    <div class="w-full h-[720px] lg:h-full py-20 bg-midnightblue relative lg:overflow-hidden">
+    <div
+      id="tickets"
+      class="w-full h-[720px] lg:h-full py-20 bg-midnightblue relative lg:overflow-hidden"
+    >
       <div class="absolute w-[50%] inset-0 translate-y-[75%] translate-x-1/2 gradient opacity-40" />
 
       <img
