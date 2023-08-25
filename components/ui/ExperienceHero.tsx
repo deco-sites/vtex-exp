@@ -22,11 +22,7 @@ export interface Props {
 export default function Hero(
   { backgroundImage, lcp, event, title, description, date, cards }: Props,
 ) {
-  if (!cards || cards.length === 0) {
-    return null;
-  }
-
-  const tickets = cards.map((card) => card.isVariantOf?.hasVariant);
+  const tickets = cards?.map((card) => card.isVariantOf?.hasVariant);
 
   return (
     <div class="w-full h-full">

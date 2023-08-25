@@ -69,7 +69,7 @@ function CardsShelf({
                 index={index}
                 class="lg:carousel-item w-full md:w-[495px] lg:w-[390px] lg:h-[90%] lg:first:pl-6 lg:last:pr-6"
               >
-                <Card product={card} />
+                <Card product={card} index={index} />
               </Slider.Item>
             ))}
           </Slider>

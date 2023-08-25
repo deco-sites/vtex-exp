@@ -4,9 +4,10 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Props {
   product: Product;
+  index: number;
 }
 
-export default function Card({ product }: Props) {
+export default function Card({ product, index }: Props) {
   const {
     url,
     productID,
@@ -45,7 +46,11 @@ export default function Card({ product }: Props) {
 
         <div class="card-actions bottom-0 translate-y-12">
           <a
-            href={`/experiences/us/mx-september`}
+            href={`${
+              index === 0
+                ? "/experiences/us/mx-september"
+                : "/experiences/us/us-january"
+            }`}
             aria-label="Learn more about experiences"
             class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-3 min-w-[142px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150"
           >
