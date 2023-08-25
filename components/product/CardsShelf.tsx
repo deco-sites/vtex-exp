@@ -1,5 +1,4 @@
 import Card from "./Card.tsx";
-import type { Props as CardProps } from "./Card.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Slider from "$store/components/ui/Slider.tsx";

@@ -47,6 +47,7 @@ export default function Card({ product }: Props) {
           <a
             href={`/experiences/us/mx-september`}
             alt="Link to experiences page"
+            aria-label="Link to experiences page"
             class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-3 min-w-[142px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150"
           >
             Learn more
