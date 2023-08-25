@@ -1,9 +1,13 @@
 import { asset } from "$fresh/runtime.ts";
 
-import type { Image as ImageType } from "deco-sites/std/components/types.ts";
+import vtexProductList from "deco-sites/std/loaders/vtex/legacy/productList.ts";
 
 import TicketSeller from "./TicketSeller.tsx";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
+
+import type { Image as ImageType } from "deco-sites/std/components/types.ts";
+import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
+import type { Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Props {
   backgroundImage: ImageType;
@@ -12,11 +16,18 @@ export interface Props {
   title?: string;
   date?: string;
   description?: string;
+  cards?: Product[] | null;
 }
 
 export default function Hero(
-  { backgroundImage, lcp, event, title, description, date }: Props,
+  { backgroundImage, lcp, event, title, description, date, cards }: Props,
 ) {
+  if (!cards || cards.length === 0) {
+    return null;
+  }
+
+  const tickets = cards.map((card) => card.isVariantOf?.hasVariant);
+
   return (
     <div class="w-full h-full">
       <div
@@ -72,9 +83,12 @@ export default function Hero(
               </p>
             </div>
 
-            <div class="flex items-start justify-center gap-6 w-full md:w-auto animate-slide-bottom">
-              <TicketSeller />
-              <TicketSeller />
+            <div class="grid grid-cols-2 items-start justify-start gap-6 w-full md:w-auto animate-slide-bottom">
+              {tickets?.flat().map((card) => (
+                <TicketSeller
+                  product={card ?? null}
+                />
+              ))}
             </div>
 
             <div class="hidden sm:block absolute inset-0 translate-x-[60%] translate-y-[18%] z-10 w-full h-full">
@@ -104,3 +118,17 @@ export default function Hero(
     </div>
   );
 }
+
+export const loader = async (props: Props, req: Request, ctx: Context) => {
+  const url = new URL(req.url);
+  const parts = url.href.split("/");
+  const term = parts[parts.length - 1];
+
+  const data = await vtexProductList(
+    { term: term !== "experiences" ? term.substring(0, 2) : "" },
+    req,
+    ctx,
+  );
+
+  return { ...props, cards: data };
+};

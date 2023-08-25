@@ -33,7 +33,6 @@ export default function ComponentTicketBuy(
     url,
     productID,
     name,
-    image: images,
     offers,
     description,
   } = product;

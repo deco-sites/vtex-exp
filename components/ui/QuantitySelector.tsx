@@ -10,13 +10,13 @@ interface Props {
 const QUANTITY_MAX_VALUE = 100;
 
 function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
-  const decrement = () => onChange?.(Math.max(0, quantity - 1));
+  const decrement = () => onChange?.(Math.max(1, quantity - 1));
 
   const increment = () =>
     onChange?.(Math.min(quantity + 1, QUANTITY_MAX_VALUE));
 
   return (
-    <div class="flex items-center justify-between border border-pink text-white w-full max-w-full md:max-w-[146px] h-[44px] rounded-xl mx-3 md:mx-1">
+    <div class="flex items-center justify-between border border-pink text-white w-full max-w-full md:max-w-[100px] h-[44px] rounded-xl mx-3 md:mx-1">
       <Button
         class="w-12 h-12"
         onClick={decrement}
