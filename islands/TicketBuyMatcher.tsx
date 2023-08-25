@@ -58,7 +58,9 @@ export default function TicketSelector() {
 
   return (
     <div class="flex flex-col gap-3 text-center min-w-[310px] max-w-[310px] h-[340px] bg-midnightblue rounded-xl backdrop-blur-xl bg-opacity-75 items-center justify-center">
-      <h1 class="text-xl text-white">Get your tickets now</h1>
+      <label for="ticket-selector" class="text-xl text-white">
+        Get your tickets now
+      </label>
 
       <div class="flex flex-col gap-5 w-full px-7">
         <SelectorButton
