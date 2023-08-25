@@ -11,9 +11,8 @@ export default function SelectorButton({ title, options, setSelected }: Props) {
 
   return (
     <select
-      id="ticket-selector"
       class="select select-bordered w-full max-w-full rounded-xl h-[33px] bg-darkslategray"
-      aria-label={`select element to ${title}`}
+      aria-label={`element to ${title}`}
       onChange={handleSelection}
     >
       <option disabled selected>{title}</option>

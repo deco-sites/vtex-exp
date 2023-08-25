@@ -62,7 +62,7 @@ export default function TicketSelector() {
         Get your tickets now
       </label>
 
-      <div class="flex flex-col gap-5 w-full px-7">
+      <div id="ticket-selector" class="flex flex-col gap-5 w-full px-7">
         <SelectorButton
           title="Location"
           options={productsName}
