@@ -2,11 +2,11 @@ import Input from "$store/components/ui/Input.tsx";
 
 export default function Login() {
   return (
-    <section class="h-screen w-full flex items-center justify-around overflow-hidden lg:pb-20 pb-80 lg:m-0">
-      <div class="max-w-[1280px] flex w-full md:ml-24">
-        <div class="w-full h-full grid md:grid-cols-2 justify-between items-center px-14">
+    <section class="h-screen w-full flex items-center justify-around mb-80 md:overflow-hidden lg:pb-20 lg:m-0">
+      <div class="max-w-[1280px] flex w-full  md:ml-24">
+        <div class="w-screen h-screen grid mb-20 md:grid-cols-2 justify-between items-center px-14">
           {/* Login */}
-          <div class="min-w-[296px] h-[229px] md:w-[276px] md:h-[229px] lg:w-[420px] lg:h-[229px] flex flex-col items-center justify-center">
+          <div class="min-w-[296px] h-[229px] md:w-[276px] md:h-[229px] lg:w-[420px] lg:h-[229px] mt-[160px] flex flex-col items-center justify-center">
             <div class="w-full h-full flex flex-col gap-8">
               <p class="text-2xl font-normal whitespace-nowrap">
                 Login in to you account
@@ -25,7 +25,7 @@ export default function Login() {
           </div>
 
           {/* Register */}
-          <div class="min-w-[296px] h-[229px] md:w-[279px] md:h-[229px] lg:w-[420px] lg:h-[229px] pt-24 md:pt-0 flex flex-col items-center justify-center">
+          <div class="min-w-[296px] h-[229px] md:w-[279px] md:h-[229px] lg:w-[420px] lg:h-[229px]  pt-24 mb-80 md:pt-0 flex flex-col items-center justify-center">
             <div class="w-full h-full flex flex-col gap-8">
               <p class="text-2xl font-normal whitespace-nowrap">
                 Need an account?
