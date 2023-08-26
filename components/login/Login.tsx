@@ -55,7 +55,7 @@ export default function Login() {
                 <div class="flex">
                   <input type="checkbox" class="checkbox" />
                   <p class="text-xs lg:text-sm font-light lg:text-center pl-2">
-                    I wish to receive VTex Experience news on my e-mail
+                    I wish to receive VTEX Experience news on my e-mail
                   </p>
                 </div>
                 <div class="flex">
