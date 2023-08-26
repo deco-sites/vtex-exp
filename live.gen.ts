@@ -36,17 +36,18 @@ import * as $$$$$$$$22 from "./sections/Images/ImageGallery.tsx";
 import * as $$$$$$$$23 from "./sections/Images/ShoppableBanner.tsx";
 import * as $$$$$$$$24 from "./sections/Links/LinkTree.tsx";
 import * as $$$$$$$$25 from "./sections/Links/Shortcuts.tsx";
-import * as $$$$$$$$26 from "./sections/Miscellaneous/CampaignTimer.tsx";
-import * as $$$$$$$$27 from "./sections/Miscellaneous/CookieConsent.tsx";
-import * as $$$$$$$$28 from "./sections/Newsletter/Newsletter.tsx";
-import * as $$$$$$$$29 from "./sections/Product/CardsShelf.tsx";
-import * as $$$$$$$$30 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$$$31 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$$$32 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$$$33 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$$$34 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$$$35 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$$$36 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$$$26 from "./sections/Login/Login.tsx";
+import * as $$$$$$$$27 from "./sections/Miscellaneous/CampaignTimer.tsx";
+import * as $$$$$$$$28 from "./sections/Miscellaneous/CookieConsent.tsx";
+import * as $$$$$$$$29 from "./sections/Newsletter/Newsletter.tsx";
+import * as $$$$$$$$30 from "./sections/Product/CardsShelf.tsx";
+import * as $$$$$$$$31 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$$$32 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$$$33 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$$$34 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$$$35 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$$$36 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$$$37 from "./sections/Theme/Theme.tsx";
 import { DecoManifest } from "$live/types.ts";
 import * as i2$$$0 from "$live/loaders/secret.ts";
 import * as i2$$$1 from "$live/loaders/state.ts";
@@ -241,17 +242,18 @@ const manifest = {
     "deco-sites/vtex-exp/sections/Images/ShoppableBanner.tsx": $$$$$$$$23,
     "deco-sites/vtex-exp/sections/Links/LinkTree.tsx": $$$$$$$$24,
     "deco-sites/vtex-exp/sections/Links/Shortcuts.tsx": $$$$$$$$25,
-    "deco-sites/vtex-exp/sections/Miscellaneous/CampaignTimer.tsx": $$$$$$$$26,
-    "deco-sites/vtex-exp/sections/Miscellaneous/CookieConsent.tsx": $$$$$$$$27,
-    "deco-sites/vtex-exp/sections/Newsletter/Newsletter.tsx": $$$$$$$$28,
-    "deco-sites/vtex-exp/sections/Product/CardsShelf.tsx": $$$$$$$$29,
-    "deco-sites/vtex-exp/sections/Product/ProductDetails.tsx": $$$$$$$$30,
-    "deco-sites/vtex-exp/sections/Product/ProductShelf.tsx": $$$$$$$$31,
-    "deco-sites/vtex-exp/sections/Product/SearchResult.tsx": $$$$$$$$32,
-    "deco-sites/vtex-exp/sections/Product/Wishlist.tsx": $$$$$$$$33,
-    "deco-sites/vtex-exp/sections/Social/InstagramPosts.tsx": $$$$$$$$34,
-    "deco-sites/vtex-exp/sections/Social/WhatsApp.tsx": $$$$$$$$35,
-    "deco-sites/vtex-exp/sections/Theme/Theme.tsx": $$$$$$$$36,
+    "deco-sites/vtex-exp/sections/Login/Login.tsx": $$$$$$$$26,
+    "deco-sites/vtex-exp/sections/Miscellaneous/CampaignTimer.tsx": $$$$$$$$27,
+    "deco-sites/vtex-exp/sections/Miscellaneous/CookieConsent.tsx": $$$$$$$$28,
+    "deco-sites/vtex-exp/sections/Newsletter/Newsletter.tsx": $$$$$$$$29,
+    "deco-sites/vtex-exp/sections/Product/CardsShelf.tsx": $$$$$$$$30,
+    "deco-sites/vtex-exp/sections/Product/ProductDetails.tsx": $$$$$$$$31,
+    "deco-sites/vtex-exp/sections/Product/ProductShelf.tsx": $$$$$$$$32,
+    "deco-sites/vtex-exp/sections/Product/SearchResult.tsx": $$$$$$$$33,
+    "deco-sites/vtex-exp/sections/Product/Wishlist.tsx": $$$$$$$$34,
+    "deco-sites/vtex-exp/sections/Social/InstagramPosts.tsx": $$$$$$$$35,
+    "deco-sites/vtex-exp/sections/Social/WhatsApp.tsx": $$$$$$$$36,
+    "deco-sites/vtex-exp/sections/Theme/Theme.tsx": $$$$$$$$37,
   },
   "name": "deco-sites/vtex-exp",
   "loaders": {
