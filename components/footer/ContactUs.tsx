@@ -79,7 +79,7 @@ export default function ContactUs(
             </form>
             {info &&
               (
-                <p class="text-gray text-sm">
+                <p class="text-darkgray text-xs">
                   {info}
                 </p>
               )}
