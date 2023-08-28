@@ -33,13 +33,13 @@ export default function TicketSelector() {
     fetchData();
   }, [fetchData]);
 
-  const productsName = products?.map((item) => item.name);
+  const productsName = products?.map((item) => item?.isVariantOf?.name);
 
   let subProducts: ProductLeaf[] | null = [];
 
   if (selectedProduct) {
     const selectedProductData = products?.find((item) =>
-      item.name === selectedProduct
+      item?.isVariantOf?.name === selectedProduct
     );
 
     if (selectedProductData && selectedProductData.isVariantOf) {
@@ -57,39 +57,41 @@ export default function TicketSelector() {
   );
 
   return (
-    <div class="flex flex-col gap-3 text-center min-w-[310px] max-w-[310px] h-[340px] bg-midnightblue rounded-xl backdrop-blur-xl bg-opacity-75 items-center justify-center">
-      <label for="ticket-selector" class="text-xl text-white">
-        Get your tickets now
-      </label>
+    <>
+      <div class="flex flex-col gap-3 text-center min-w-[310px] max-w-[310px] h-[340px] bg-midnightblue rounded-xl backdrop-blur-xl bg-opacity-75 items-center justify-center">
+        <label for="ticket-selector" class="text-xl text-white">
+          Get your tickets now
+        </label>
 
-      <div id="ticket-selector" class="flex flex-col gap-5 w-full px-7">
-        <SelectorButton
-          title="Location"
-          options={productsName}
-          setSelected={setSelectedProduct}
-        />
-        <SelectorButton
-          title="Package"
-          options={subProducts?.map((item) => item.name)}
-          setSelected={setSelectedSubproduct}
-        />
-        <SelectorButton
-          title="How many"
-          options={["1", "2", "3", "4", "5"]}
-          setSelected={setQuantity}
+        <div id="ticket-selector" class="flex flex-col gap-5 w-full px-7">
+          <SelectorButton
+            title="Location"
+            options={productsName}
+            setSelected={setSelectedProduct}
+          />
+          <SelectorButton
+            title="Package"
+            options={subProducts?.map((item) => item.name)}
+            setSelected={setSelectedSubproduct}
+          />
+          <SelectorButton
+            title="How many"
+            options={["1", "2", "3", "4", "5"]}
+            setSelected={setQuantity}
+          />
+        </div>
+
+        <AddToCartButton
+          skuId={filteredSubproduct?.productID ?? ""}
+          sellerId={seller ?? ""}
+          name={filteredSubproduct?.name ?? ""}
+          discount={price && listPrice ? listPrice - price : 0}
+          price={price ?? 0}
+          productGroupId={""}
+          quantity={Number(quantity) ?? 1}
+          type="ticket-selector"
         />
       </div>
-
-      <AddToCartButton
-        skuId={filteredSubproduct?.productID ?? ""}
-        sellerId={seller ?? ""}
-        name={filteredSubproduct?.name ?? ""}
-        discount={price && listPrice ? listPrice - price : 0}
-        price={price ?? 0}
-        productGroupId={""}
-        quantity={Number(quantity) ?? 1}
-        type="ticket-selector"
-      />
-    </div>
+    </>
   );
 }

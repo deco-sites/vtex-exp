@@ -2,9 +2,9 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/islands/SliderJS.tsx";
 import { useId } from "$store/sdk/useId.ts";
-import Hero from "./Hero.tsx";
-import type { Props as HeroProps } from "./Hero.tsx";
-import TicketSelector from "./TicketSelector.tsx";
+import Hero from "$store/components/ui/Hero.tsx";
+import type { Props as HeroProps } from "$store/components/ui/Hero.tsx";
+import TicketSelector from "$store/components/ui/TicketSelector.tsx";
 
 export interface Props {
   heros?: HeroProps[];

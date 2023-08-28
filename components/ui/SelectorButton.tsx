@@ -1,7 +1,7 @@
 interface Props {
   title: string;
   options?: (string | undefined)[];
-  setSelected: (product: string | undefined) => void;
+  setSelected: (item: string | undefined) => void;
 }
 
 export default function SelectorButton({ title, options, setSelected }: Props) {

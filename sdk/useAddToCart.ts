@@ -1,8 +1,8 @@
 import { useSignal } from "@preact/signals";
 import { useCallback } from "preact/hooks";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
-import { useUI } from "deco-sites/fashion/sdk/useUI.ts";
-import { sendEvent } from "deco-sites/fashion/sdk/analytics.tsx";
+import { useUI } from "$store/sdk/useUI.ts";
+import { sendEvent } from "deco-sites/vtex-exp/sdk/analytics.tsx";
 
 export interface Options {
   skuId: string;
@@ -21,7 +21,7 @@ export const useAddToCart = (
   { skuId, sellerId, price, discount, name, productGroupId, quantity }: Options,
 ) => {
   const isAddingToCart = useSignal(false);
-  const { displayCart } = useUI();
+  const { displayTicketModal } = useUI();
   const { addItems } = useCart();
 
   const onClick = useCallback(async (e: MouseEvent) => {
@@ -52,7 +52,7 @@ export const useAddToCart = (
         },
       });
 
-      displayCart.value = true;
+      displayTicketModal.value = true;
     } finally {
       isAddingToCart.value = false;
     }
