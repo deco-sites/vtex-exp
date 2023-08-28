@@ -1,6 +1,7 @@
 import Drawers from "$store/islands/Header/Drawers.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
 import Navbar from "./Navbar.tsx";
+import Modals from "$store/islands/Modals.tsx";
 
 export interface NavItem {
   label: string;
@@ -31,6 +32,8 @@ function Header({
           <Navbar items={navItems} logo={logo} />
         </div>
       </Drawers>
+
+      <Modals />
     </>
   );
 }
