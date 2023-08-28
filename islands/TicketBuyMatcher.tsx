@@ -33,13 +33,13 @@ export default function TicketSelector() {
     fetchData();
   }, [fetchData]);
 
-  const productsName = products?.map((item) => item.name);
+  const productsName = products?.map((item) => item?.isVariantOf?.name);
 
   let subProducts: ProductLeaf[] | null = [];
 
   if (selectedProduct) {
     const selectedProductData = products?.find((item) =>
-      item.name === selectedProduct
+      item?.isVariantOf?.name === selectedProduct
     );
 
     if (selectedProductData && selectedProductData.isVariantOf) {
