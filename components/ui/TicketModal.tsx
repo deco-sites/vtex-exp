@@ -64,7 +64,7 @@ export default function TicketModal() {
             VTEX Experience Package
           </p>
           <span class="text-2xl text-pink w-[167px] md:w-[315px]">
-            {cart.value?.items[cart.value.items.length - 1].name}
+            {cart.value?.items[cart.value.items.length - 1]?.name ?? ""}
           </span>
         </div>
       </div>

@@ -7,6 +7,11 @@ export interface Props {
   index: number;
 }
 
+const relative = (url: string) => {
+  const link = new URL(url);
+  return `${link.pathname}${link.search}`;
+};
+
 export default function Card({ product, index }: Props) {
   const {
     url,
@@ -46,11 +51,7 @@ export default function Card({ product, index }: Props) {
 
         <div class="card-actions bottom-0 translate-y-12">
           <a
-            href={`${
-              index === 0
-                ? "/experiences/us/mx-september"
-                : "/experiences/us/us-january"
-            }`}
+            href={url && relative(url)}
             aria-label="Learn more about experiences"
             alt="Learn more about experiences"
             class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-3 min-w-[142px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150"
