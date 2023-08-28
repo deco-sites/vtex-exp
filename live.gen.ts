@@ -7,9 +7,10 @@ import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/Header/Buttons.tsx";
 import * as $$$$$2 from "./islands/Header/Drawers.tsx";
 import * as $$$$$3 from "./islands/Header/Searchbar.tsx";
-import * as $$$$$4 from "./islands/SliderJS.tsx";
-import * as $$$$$5 from "./islands/TicketBuyMatcher.tsx";
-import * as $$$$$6 from "./islands/TicketBuySelector.tsx";
+import * as $$$$$4 from "./islands/Modals.tsx";
+import * as $$$$$5 from "./islands/SliderJS.tsx";
+import * as $$$$$6 from "./islands/TicketBuyMatcher.tsx";
+import * as $$$$$7 from "./islands/TicketBuySelector.tsx";
 import * as $$$$$$$$0 from "./sections/Category/CategoryBanner.tsx";
 import * as $$$$$$$$1 from "./sections/Category/CategoryList.tsx";
 import * as $$$$$$$$2 from "./sections/Content/Benefits.tsx";
@@ -194,9 +195,10 @@ const manifest = {
     "./islands/Header/Buttons.tsx": $$$$$1,
     "./islands/Header/Drawers.tsx": $$$$$2,
     "./islands/Header/Searchbar.tsx": $$$$$3,
-    "./islands/SliderJS.tsx": $$$$$4,
-    "./islands/TicketBuyMatcher.tsx": $$$$$5,
-    "./islands/TicketBuySelector.tsx": $$$$$6,
+    "./islands/Modals.tsx": $$$$$4,
+    "./islands/SliderJS.tsx": $$$$$5,
+    "./islands/TicketBuyMatcher.tsx": $$$$$6,
+    "./islands/TicketBuySelector.tsx": $$$$$7,
   },
   "sections": {
     "$live/sections/Conditional_Beta.tsx": i2$$$$$0,
