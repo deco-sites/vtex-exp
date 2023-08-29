@@ -124,7 +124,7 @@ export default function TicketsBuy({ cards, interval, icons }: Props) {
         class="hidden lg:block absolute inset-0 bg-no-repeat bg-cover w-[771px] h-[738px] tickets-buy-gradient-2 xl:tickets-buy-gradient-2-xl 2xl:tickets-buy-gradient-2-2xl"
       />
 
-      <div class="text-4xl text-white text-center lg:pb-7">
+      <div id="card-content" class="text-4xl text-white text-center lg:pb-7">
         <h1>
           Tickets
         </h1>

@@ -28,9 +28,12 @@ function Navbar({ items, logo }: {
           </a>
         )}
 
-        <button class="flex items-center justify-center rounded-2xl bg-pink py-2 min-w-[100px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150">
+        <a
+          href="#card-content"
+          class="flex items-center justify-center rounded-2xl bg-pink py-2 min-w-[100px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150"
+        >
           Buy now
-        </button>
+        </a>
 
         <div class="flex items-center justify-center -space-x-1.5">
           <div class="flex items-center gap-1">
@@ -70,9 +73,12 @@ function Navbar({ items, logo }: {
         </div>
 
         <div class="flex-none w-52 flex items-center justify-end gap-8 lg:pr-8">
-          <button class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-2 lg:py-3 min-w-[60%] lg:min-w-[80%] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150">
+          <a
+            href="#card-content"
+            class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-2 lg:py-3 min-w-[60%] lg:min-w-[80%] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150"
+          >
             Buy now
-          </button>
+          </a>
 
           <div class="flex items-center justify-center -space-x-1 lg:-space-x-2 lg:gap-1">
             <div class="flex items-center gap-1">

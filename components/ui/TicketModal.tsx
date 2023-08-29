@@ -95,10 +95,10 @@ export default function TicketModal() {
           <div class="mb-6">
             <p class="text-lg text-white my-2 w-[163px]">Ticket 01:</p>
             <div class="flex flex-col gap-2 w-[291px] h-[164px] md:w-[361px] md:h-[98px]">
-              <Input id="firstName" placeholder="First Name" />
-              <Input id="lastName" placeholder="Last Name" />
-              <Input id="email" placeholder="E-mail" />
-              <Input id="company" placeholder="Company" />
+              <Input id="firstName" placeholder="First Name" required />
+              <Input id="lastName" placeholder="Last Name" required />
+              <Input id="email" placeholder="E-mail" required />
+              <Input id="company" placeholder="Company" required />
             </div>
           </div>
           {
