@@ -102,7 +102,7 @@ export default function TicketsBuy({ cards, interval, icons }: Props) {
   return (
     <div
       id="tickets"
-      class="w-full h-[720px] lg:h-full py-20 bg-midnightblue relative lg:overflow-hidden"
+      class="w-full h-[720px] md:h-full py-20 bg-midnightblue relative md:overflow-hidden"
     >
       <div class="absolute w-[50%] inset-0 translate-y-[75%] translate-x-1/2 gradient opacity-40" />
 

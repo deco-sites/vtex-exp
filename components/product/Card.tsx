@@ -7,9 +7,10 @@ export interface Props {
   index: number;
 }
 
-const relative = (url: string) => {
-  const link = new URL(url);
-  return `${link.pathname}${link.search}`;
+const relative = (name?: string) => {
+  const formattedName = name?.toLowerCase().replace(/\s+/g, "-");
+
+  return `/experiences/${"br"}/${formattedName}`;
 };
 
 export default function Card({ product, index }: Props) {
@@ -51,7 +52,7 @@ export default function Card({ product, index }: Props) {
 
         <div class="card-actions bottom-0 translate-y-12">
           <a
-            href={url && relative(url)}
+            href={url && relative(product?.isVariantOf?.name)}
             aria-label="Learn more about experiences"
             alt="Learn more about experiences"
             class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-3 min-w-[142px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150"

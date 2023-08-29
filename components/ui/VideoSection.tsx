@@ -30,7 +30,7 @@ export default function ({ title, subTitle, video }: Props) {
 
   return (
     <>
-      <div class="h-full w-full pb-28 bg-gradient-to-b from-[#141e2d] to-midnightblue overflow-hidden">
+      <div class="h-full w-full pb-28 bg-gradient-to-b from-[#141e2d] to-midnightblue overflow-x-clip">
         <div class="flex items-center justify-center text-center relative w-full animate-slide-bottom">
           <img
             loading="lazy"

@@ -3,10 +3,14 @@ export interface INavItem {
   href: string;
 }
 
-function NavItem({ item }: { item: INavItem }) {
+function NavItem(
+  { item, selectedPath }: { item: INavItem; selectedPath?: string },
+) {
   const { href, label } = item;
 
-  const isActive = self?.location?.href.includes(href);
+  const isHome = selectedPath === "/";
+  const isActive = (isHome && href === "/") ||
+    (selectedPath?.startsWith(href) && href !== "/");
 
   return (
     <div class="group flex items-center">

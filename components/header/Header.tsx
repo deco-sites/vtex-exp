@@ -17,11 +17,18 @@ export interface Props {
 
   /** @title Logo */
   logo?: { src: Image; alt: string };
+
+  /**
+   * @title Current Active Path
+   * @description Responsible for checking the current path. No need to change anything.
+   */
+  selectedPath?: string;
 }
 
 function Header({
   navItems = [],
   logo,
+  selectedPath,
 }: Props) {
   return (
     <>
@@ -29,7 +36,7 @@ function Header({
         menu={{ items: navItems }}
       >
         <div class="bg-transparent backdrop-blur-sm fixed w-full z-50 animate-slide-bottom text-white">
-          <Navbar items={navItems} logo={logo} />
+          <Navbar items={navItems} logo={logo} selectedPath={selectedPath} />
         </div>
       </Drawers>
 
@@ -37,5 +44,11 @@ function Header({
     </>
   );
 }
+
+export const loader = (props: Props, req: Request) => {
+  const url = new URL(req.url);
+
+  return { ...props, selectedPath: url.pathname };
+};
 
 export default Header;

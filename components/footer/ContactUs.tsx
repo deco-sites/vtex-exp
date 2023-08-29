@@ -2,7 +2,14 @@ import Input from "$store/components/ui/Input.tsx";
 import type { HTML } from "deco-sites/std/components/HTMLRenderer.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import { lazy } from "https://esm.sh/v128/preact@10.15.1/compat/src/suspense.js";
+
+import { useSignal } from "@preact/signals";
+import { Runtime } from "$store/runtime.ts";
+import type { JSX } from "preact";
+
+const subscribe = Runtime.create(
+  "deco-sites/std/actions/vtex/newsletter/subscribe.ts",
+);
 
 export interface Props {
   variant: "variant-1" | "variant-2";
@@ -27,6 +34,23 @@ export interface Props {
 export default function ContactUs(
   { title, label, description, forms, html, info, variant, image }: Props,
 ) {
+  const loading = useSignal(false);
+
+  const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+
+    try {
+      loading.value = true;
+
+      const email =
+        (e.currentTarget.elements.namedItem("email") as RadioNodeList)?.value;
+
+      await subscribe({ email });
+    } finally {
+      loading.value = false;
+    }
+  };
+
   if (variant === "variant-2") {
     // Variant 2:
 
@@ -43,7 +67,10 @@ export default function ContactUs(
               height={452}
             />
           )}
-          <div class="flex flex-1 flex-col justify-center lg:justify-start text-center lg:text-start gap-5 lg:gap-3 lg:max-w-[500px]">
+          <form
+            onSubmit={handleSubmit}
+            class="flex flex-1 flex-col justify-center lg:justify-start text-center lg:text-start gap-5 lg:gap-3 lg:max-w-[500px]"
+          >
             {html &&
               (
                 <div
@@ -62,7 +89,7 @@ export default function ContactUs(
                 height={452}
               />
             )}
-            <form class="flex justify-center lg:justify-end">
+            <div class="flex justify-center lg:justify-end">
               <div class="flex flex-col w-full gap-8 lg:gap-10">
                 {forms?.map((item) => (
                   <div
@@ -71,12 +98,16 @@ export default function ContactUs(
                     } grid gap-8 lg:gap-6`}
                   >
                     {item.inputs.map((input) => (
-                      <Input placeholder={input.placeholder} />
+                      <Input
+                        id={input?.placeholder?.toLowerCase()}
+                        placeholder={input.placeholder}
+                        required
+                      />
                     ))}
                   </div>
                 ))}
               </div>
-            </form>
+            </div>
             {info &&
               (
                 <p class="text-darkgray text-xs">
@@ -84,11 +115,14 @@ export default function ContactUs(
                 </p>
               )}
             <div class="flex justify-center lg:justify-start w-full mt-8">
-              <button class="flex items-center justify-center rounded-2xl bg-transparent py-4 w-full max-w-[142px] border font-semibold border-pink text-pink hover:bg-midnightblue/40 hover:bg-opacity-40 transition-all duration-150">
+              <button
+                type="submit"
+                class="flex items-center justify-center rounded-2xl bg-transparent py-4 w-full max-w-[142px] border font-semibold border-pink text-pink hover:bg-midnightblue/40 hover:bg-opacity-40 transition-all duration-150"
+              >
                 Send
               </button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     );
@@ -116,7 +150,10 @@ export default function ContactUs(
             )}
         </div>
 
-        <form class="flex justify-center lg:justify-end">
+        <form
+          onSubmit={handleSubmit}
+          class="flex justify-center lg:justify-end"
+        >
           <div class="flex flex-col w-full gap-8 lg:gap-10">
             {forms?.map((item) => (
               <div
@@ -125,13 +162,20 @@ export default function ContactUs(
                 } grid gap-8 lg:gap-6`}
               >
                 {item.inputs.map((input) => (
-                  <Input placeholder={input.placeholder} />
+                  <Input
+                    id={input?.placeholder?.toLowerCase()}
+                    placeholder={input.placeholder}
+                    required
+                  />
                 ))}
               </div>
             ))}
 
             <div class="flex justify-center lg:justify-start w-full mt-8">
-              <button class="flex items-center justify-center rounded-2xl bg-transparent py-4 w-full max-w-[142px] border font-semibold border-pink text-pink hover:bg-midnightblue/40 hover:bg-opacity-40 transition-all duration-150">
+              <button
+                type="submit"
+                class="flex items-center justify-center rounded-2xl bg-transparent py-4 w-full max-w-[142px] border font-semibold border-pink text-pink hover:bg-midnightblue/40 hover:bg-opacity-40 transition-all duration-150"
+              >
                 Send
               </button>
             </div>

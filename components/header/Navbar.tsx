@@ -6,9 +6,10 @@ import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import { asset } from "$fresh/runtime.ts";
 
-function Navbar({ items, logo }: {
+function Navbar({ items, logo, selectedPath }: {
   items: INavItem[];
   logo?: { src: string; alt: string };
+  selectedPath?: string;
 }) {
   return (
     <>
@@ -68,7 +69,9 @@ function Navbar({ items, logo }: {
           )}
 
           <div class="md:hidden lg:flex">
-            {items.map((item) => <NavItem item={item} />)}
+            {items.map((item) => (
+              <NavItem item={item} selectedPath={selectedPath} />
+            ))}
           </div>
         </div>
 

@@ -1,7 +1,6 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
-import QuantitySelector from "$store/components/ui/QuantitySelector.tsx";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
@@ -29,9 +28,15 @@ function CartItem({ index, locale, currency }: Props) {
     listPrice,
     name,
     quantity,
+    attachments,
   } = item;
 
   const isGift = sellingPrice < 0.01;
+
+  // @ts-ignore: Ignorando erro de tipagem temporariamente
+  const firstName = attachments[0]?.content.first_name;
+  // @ts-ignore: Ignorando erro de tipagem temporariamente
+  const lastName = attachments[0]?.content.last_name;
 
   const withLoading = useCallback(
     <A,>(cb: (args: A) => void) => async (e: A) => {
@@ -66,7 +71,9 @@ function CartItem({ index, locale, currency }: Props) {
           <div class="flex flex-col items-start">
             <span class="text-sm text-darkgray">VTEX</span>
             <h1 class="text-white text-lg">{name}</h1>
-            <h1 class="text-white">Package 2 - Bruno Nunes</h1>
+            <h1 class="text-white">
+              Package {index + 1} - {(firstName ?? "") + " " + (lastName ?? "")}
+            </h1>
           </div>
           <Button
             disabled={loading.value || isGift}
