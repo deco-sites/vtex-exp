@@ -49,28 +49,29 @@ export default function TicketModal() {
   };
 
   return (
-    <section class="w-[296px] md:w-[412px] flex flex-col items-center justify-center md:ml-6">
-      <div class="flex flex-col items-start justify-start mb-4">
+    <section class="w-full flex flex-col items-start justify-center lg:px-8 lg:py-4">
+      <div class="flex flex-col items-start justify-between mb-4 relative w-full">
+        <div>
+          <p class="text-xl text-white">
+            VTEX Experience Package
+          </p>
+          <span class="text-2xl text-pink">
+            {cart.value?.items[cart.value.items.length - 1]?.name ?? ""}
+          </span>
+        </div>
+
         <button
           title="Close Modal"
           aria-label="close ticket modal"
           onClick={() => displayTicketModal.value = false}
-          class="w-4 h-4 ml-auto font-semibold text-pink"
+          class="absolute w-4 h-4 -top-4 sm:top-0 right-1 font-semibold text-pink"
         >
           x
         </button>
-        <div class="w-[296px] md:w-[380px]">
-          <p class="text-xl text-white w-[250px] md:w-[315px]">
-            VTEX Experience Package
-          </p>
-          <span class="text-2xl text-pink w-[167px] md:w-[315px]">
-            {cart.value?.items[cart.value.items.length - 1]?.name ?? ""}
-          </span>
-        </div>
       </div>
       <div>
         <img
-          class="w-[100%] mb-4"
+          class="w-full mb-4"
           alt="Line Gradient"
           width={408}
           height={25}
@@ -79,42 +80,31 @@ export default function TicketModal() {
         />
       </div>
       <form
-        class="flex flex-col items-start justify-start mb-4"
+        class="flex flex-col items-start justify-start mb-4 w-full"
         onSubmit={handleSubmit}
       >
-        <div class="w-[296px] md:w-[380px]">
+        <div class="w-full">
           <div class="mb-8">
-            <p class="text-xl text-white w-[224px] md:w-[315px]">
+            <p class="text-xl text-white">
               Personal Information:
             </p>
-            <span class="text-xs text-darkgray w-[268px] md:w-[380px]">
+            <span class="text-xs text-darkgray">
               Fill in the fields below with the package/ticket holder's personal
               information.
             </span>
           </div>
-          <div class="mb-6">
-            <p class="text-lg text-white my-2 w-[163px]">Ticket 01:</p>
-            <div class="flex flex-col gap-2 w-[291px] h-[164px] md:w-[361px] md:h-[98px]">
+          <div class="mb-6 w-full">
+            <p class="text-lg text-white my-2">Ticket 01:</p>
+            <div class="flex flex-col gap-2 w-full md:h-[98px]">
               <Input id="firstName" placeholder="First Name" required />
               <Input id="lastName" placeholder="Last Name" required />
               <Input id="email" placeholder="E-mail" required />
               <Input id="company" placeholder="Company" required />
             </div>
           </div>
-          {
-            /* <div class="my-4">
-            <p class="text-lg text-white my-2 w-[163px]">Ticket 02:</p>
-            <div class="flex flex-col gap-2 mb-2 w-[291px] h-[164px] md:w-[361px] md:h-[98px]">
-                <Input placeholder="First Name" />
-                <Input placeholder="Last Name" />
-                <Input placeholder="E-mail" />
-                <Input placeholder="Company" />
-            </div>
-          </div> */
-          }
           <button
             type="submit"
-            class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink min-w-[295px] md:min-w-[380px] lg:min-w-[380px] h-[48px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150 mt-10"
+            class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink min-w-full h-[48px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150 mt-10"
           >
             Save
           </button>

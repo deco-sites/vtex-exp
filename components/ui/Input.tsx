@@ -16,7 +16,7 @@ const Input = forwardRef<HTMLInputElement, Props>(({
 }) => (
   <input
     {...props}
-    class={`placeholder:text-darkgray text-darkgray border-darkgray h-[17px] border-b-2 min-w-full lg:min-w-[197px] border-none focus:outline-none text-sm ${_class}`}
+    class={`placeholder:text-darkgray text-darkgray border-darkgray h-[17px] border-b-2 min-w-full border-none focus:outline-none text-sm ${_class}`}
     aria-label={`${placeholder} input`}
     disabled={disabled || loading}
     placeholder={placeholder}
