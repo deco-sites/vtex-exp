@@ -1,6 +1,6 @@
 export interface CardProps {
   info: string;
-  height?: number;
+  eventTime?: "1h" | "2h" | "3h" | "4h" | "5h++";
   hasCrimsonBorder?: boolean;
 }
 
@@ -10,7 +10,21 @@ export interface Props {
   cards?: CardProps[];
 }
 
-function ScheduleCard({ info, hasCrimsonBorder, height = 118 }: CardProps) {
+function ScheduleCard({ info, hasCrimsonBorder, eventTime = "1h" }: CardProps) {
+  function getScheduleHeight(eventTime: string): number {
+    const eventTimeToHeight: { [key: string]: number } = {
+      "1h": 118,
+      "2h": 236,
+      "3h": 338,
+      "4h": 472,
+      "5h++": 500,
+    };
+
+    return eventTimeToHeight[eventTime] || 118;
+  }
+
+  const height = getScheduleHeight(eventTime);
+
   return (
     <div
       style={{ minHeight: `${height}px` }}
