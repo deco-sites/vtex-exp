@@ -53,7 +53,7 @@ export default function Card({ product, index }: Props) {
         <div class="card-actions bottom-0 translate-y-12">
           <a
             href={url && relative(product?.isVariantOf?.name)}
-            aria-label="Learn more about experiences"
+            aria-label="view product"
             alt="Learn more about experiences"
             class="flex items-center justify-center rounded-2xl lg:rounded-xl bg-pink py-3 min-w-[142px] border text-black font-semibold border-pink hover:text-pink hover:bg-midnightblue transition-all duration-150"
           >
