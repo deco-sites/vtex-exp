@@ -39,7 +39,7 @@ export default function Sponsors({ sponsors, interval = 0 }: Props) {
     <>
       <section
         id={id}
-        class="flex items-center justify-center p-0 sm:p-5 w-full h-full bg-midnightblue"
+        class="flex items-center justify-center pb-14 sm:px-5 sm:pt-5 sm:pb-20 w-full h-full bg-midnightblue"
       >
         <Slider
           id="sponsors-slider"

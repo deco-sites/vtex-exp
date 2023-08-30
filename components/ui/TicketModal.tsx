@@ -13,7 +13,7 @@ const updateAttachment = Runtime.create(
 export default function TicketModal() {
   const loading = useSignal(false);
   const { cart } = useCart();
-  const { displayTicketModal } = useUI();
+  const { displayTicketModal, displayCart } = useUI();
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -45,7 +45,12 @@ export default function TicketModal() {
     } finally {
       loading.value = false;
       displayTicketModal.value = false;
+      displayCart.value = true;
     }
+  };
+
+  const closeModal = () => {
+    displayTicketModal.value = false;
   };
 
   return (
@@ -63,7 +68,7 @@ export default function TicketModal() {
         <button
           title="Close Modal"
           aria-label="close ticket modal"
-          onClick={() => displayTicketModal.value = false}
+          onClick={closeModal}
           class="absolute w-4 h-4 -top-4 sm:top-0 right-1 font-semibold text-pink"
         >
           x

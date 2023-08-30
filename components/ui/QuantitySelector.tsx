@@ -5,18 +5,27 @@ interface Props {
   disabled?: boolean;
   loading?: boolean;
   onChange?: (quantity: number) => void;
+  type?: "adaptative" | "full";
 }
 
 const QUANTITY_MAX_VALUE = 100;
 
-function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
+function QuantitySelector(
+  { onChange, quantity, disabled, loading, type = "adaptative" }: Props,
+) {
+  const formattedTypeToCss = type === "adaptative"
+    ? "max-w-full md:max-w-[100px]"
+    : "max-w-[100px]";
+
   const decrement = () => onChange?.(Math.max(1, quantity - 1));
 
   const increment = () =>
     onChange?.(Math.min(quantity + 1, QUANTITY_MAX_VALUE));
 
   return (
-    <div class="flex items-center justify-between border border-pink text-white w-full max-w-full md:max-w-[100px] h-[44px] rounded-xl mx-3 md:mx-1">
+    <div
+      class={`flex items-center justify-between border border-pink text-white w-full h-[44px] rounded-xl mx-3 md:mx-1 ${formattedTypeToCss}`}
+    >
       <Button
         class="w-12 h-12"
         onClick={decrement}

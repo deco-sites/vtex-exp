@@ -28,6 +28,10 @@ export default function TicketSeller(
     description,
   } = product;
 
+  const batchName = product.additionalProperty?.find((item) =>
+    item.name === "BATCH"
+  )?.value;
+
   const id = `product-card-${productID}`;
   const { listPrice, price, installments, seller, availability } = useOffer(
     offers,
@@ -44,7 +48,7 @@ export default function TicketSeller(
           {formatPrice(price, offers!.priceCurrency! ?? "BRL")}
         </h1>
 
-        <span class="text-lightsteelblue text-xs">1ST PACKAGE BATCH</span>
+        <span class="text-lightsteelblue text-xs">{batchName ?? ""}</span>
       </div>
 
       <TicketBuySelector

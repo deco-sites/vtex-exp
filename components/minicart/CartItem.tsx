@@ -25,18 +25,11 @@ function CartItem({ index, locale, currency }: Props) {
     imageUrl,
     skuName,
     sellingPrice,
-    listPrice,
     name,
     quantity,
-    attachments,
   } = item;
 
   const isGift = sellingPrice < 0.01;
-
-  // @ts-ignore: Ignorando erro de tipagem temporariamente
-  const firstName = attachments[0]?.content.first_name;
-  // @ts-ignore: Ignorando erro de tipagem temporariamente
-  const lastName = attachments[0]?.content.last_name;
 
   const withLoading = useCallback(
     <A,>(cb: (args: A) => void) => async (e: A) => {
@@ -72,7 +65,7 @@ function CartItem({ index, locale, currency }: Props) {
             <span class="text-sm text-darkgray">VTEX</span>
             <h1 class="text-white text-lg">{name}</h1>
             <h1 class="text-white">
-              Package {index + 1} - {(firstName ?? "") + " " + (lastName ?? "")}
+              Package {index + 1} - {skuName}
             </h1>
           </div>
           <Button

@@ -30,7 +30,7 @@ export default function TicketBuySelector(
 
   if (type === "flex-row") {
     return (
-      <div class="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start align-middle pt-4 md:pt-2 gap-2.5 md:gap-1 max-w-[90%]">
+      <div class="flex flex-col md:flex-row items-center justify-center md:items-start md:justify-start align-middle pt-4 md:py-2 gap-2.5 md:gap-1 max-w-[90%]">
         <QuantitySelector quantity={quantity} onChange={setQuantity} />
 
         <AddToCartButton
@@ -53,6 +53,7 @@ export default function TicketBuySelector(
         <QuantitySelector
           quantity={quantity}
           onChange={setQuantity}
+          type="full"
         />
       </div>
 
@@ -66,21 +67,23 @@ export default function TicketBuySelector(
         </p>
       </div>
 
-      {availability === "https://schema.org/InStock" && (
-        <>
-          {seller && (
-            <AddToCartButton
-              name={name ?? ""}
-              skuId={productID}
-              sellerId={seller}
-              productGroupId={productGroupID ?? ""}
-              discount={price && listPrice ? listPrice - price : 0}
-              price={price ?? 0}
-              quantity={quantity}
-            />
-          )}
-        </>
-      )}
+      <div class="relative flex w-full h-full items-center justify-center">
+        {availability === "https://schema.org/InStock" && (
+          <>
+            {seller && (
+              <AddToCartButton
+                name={name ?? ""}
+                skuId={productID}
+                sellerId={seller}
+                productGroupId={productGroupID ?? ""}
+                discount={price && listPrice ? listPrice - price : 0}
+                price={price ?? 0}
+                quantity={quantity}
+              />
+            )}
+          </>
+        )}
+      </div>
     </>
   );
 }

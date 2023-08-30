@@ -13,13 +13,9 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 
 import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
 import type { Product, ProductLeaf } from "deco-sites/std/commerce/types.ts";
-import type { Props as CardProps } from "$store/components/ui/ComponentTicketBuy.tsx";
-
-export type IIcon = Pick<CardProps, "iconImage">;
 
 export interface Props {
   cards?: Product[] | null;
-  icons?: IIcon;
   interval?: number;
 }
 
@@ -58,7 +54,7 @@ function Dots(
 }
 
 function MobileCarousel(
-  { tickets, interval, icons }: Omit<Props, "cards"> & {
+  { tickets, interval }: Omit<Props, "cards"> & {
     tickets: (ProductLeaf[] | undefined)[];
   },
 ) {
@@ -76,7 +72,6 @@ function MobileCarousel(
             class="carousel-item w-full flex items-center justify-center"
           >
             <ComponentTicketBuy
-              iconImage={icons?.iconImage}
               product={card ?? null}
             />
           </Slider.Item>
@@ -92,7 +87,7 @@ function MobileCarousel(
   );
 }
 
-export default function TicketsBuy({ cards, interval, icons }: Props) {
+export default function TicketsBuy({ cards, interval }: Props) {
   if (!cards || cards.length === 0) {
     return null;
   }
@@ -132,7 +127,7 @@ export default function TicketsBuy({ cards, interval, icons }: Props) {
 
       <>
         {/* Mobile */}
-        <MobileCarousel tickets={tickets} interval={interval} icons={icons} />
+        <MobileCarousel tickets={tickets} interval={interval} />
 
         {/* Desktop */}
         <div class="hidden md:flex items-center justify-center">
@@ -140,7 +135,6 @@ export default function TicketsBuy({ cards, interval, icons }: Props) {
             {tickets?.flat().map((card) => (
               <ComponentTicketBuy
                 product={card ?? null}
-                iconImage={icons?.iconImage}
               />
             ))}
           </div>

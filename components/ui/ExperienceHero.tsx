@@ -7,7 +7,7 @@ import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 
 import type { Image as ImageType } from "deco-sites/std/components/types.ts";
 import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { ListItem, Product } from "deco-sites/std/commerce/types.ts";
 
 export interface Props {
   backgroundImage: ImageType;
@@ -23,6 +23,15 @@ export default function Hero(
   { backgroundImage, lcp, event, title, description, date, cards }: Props,
 ) {
   const tickets = cards?.map((card) => card.isVariantOf?.hasVariant);
+
+  const itemListElement: ListItem[] = cards?.map((card, index) => ({
+    name: card?.isVariantOf?.name || "",
+    item: `/experiences/us/${
+      card?.isVariantOf?.name?.toLowerCase()?.replace(/\s+/g, "-")
+    }`,
+    "@type": "ListItem",
+    position: index + 1,
+  })) || [];
 
   return (
     <div class="w-full h-full">
@@ -41,22 +50,7 @@ export default function Hero(
           {/* Breadcrumb */}
           <div class="animate-slide-right">
             <Breadcrumb
-              itemListElement={[{
-                name: "US - January",
-                item: "/experiences/us/us-january",
-                "@type": "ListItem",
-                position: 1,
-              }, {
-                name: "BR - June",
-                item: "/experiences/us/br-june",
-                "@type": "ListItem",
-                position: 2,
-              }, {
-                name: "MX - September",
-                item: "/experiences/us/mx-september",
-                "@type": "ListItem",
-                position: 3,
-              }]}
+              itemListElement={itemListElement}
             />
           </div>
 
@@ -126,5 +120,5 @@ export const loader = async (props: Props, req: Request, ctx: Context) => {
     ctx,
   );
 
-  return { ...props, cards: data };
+  return { ...props, cards: data ?? null };
 };
