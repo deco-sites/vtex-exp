@@ -12,8 +12,8 @@ export default function Login() {
                 Login in to you account
               </p>
               <div class="flex flex-col gap-8">
-                <Input placeholder="E-mail" />
-                <Input placeholder="Password" />
+                <Input placeholder="E-mail" class="lg:min-w-[197px]" />
+                <Input placeholder="Password" class="lg:min-w-[197px]" />
               </div>
               <a href="/" class="text-sm text-pink">
                 Forgot your password?
@@ -32,16 +32,16 @@ export default function Login() {
               </p>
               <div class="flex flex-col gap-8">
                 <div class="flex flex-col md:flex-col lg:flex-row gap-8">
-                  <Input placeholder="First Name" />
-                  <Input placeholder="Last Name" />
+                  <Input placeholder="First Name" class="lg:min-w-[197px]" />
+                  <Input placeholder="Last Name" class="lg:min-w-[197px]" />
                 </div>
 
-                <Input placeholder="E-mail" />
-                <Input placeholder="Phone Number" />
+                <Input placeholder="E-mail" class="lg:min-w-[197px]" />
+                <Input placeholder="Phone Number" class="lg:min-w-[197px]" />
 
                 <div class="flex flex-col md:flex-col lg:flex-row gap-8">
-                  <Input placeholder="Company" />
-                  <Input placeholder="Job Title" />
+                  <Input placeholder="Company" class="lg:min-w-[197px]" />
+                  <Input placeholder="Job Title" class="lg:min-w-[197px]" />
                 </div>
               </div>
               <form class="flex flex-col gap-4">

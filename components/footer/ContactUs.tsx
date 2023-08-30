@@ -55,7 +55,10 @@ export default function ContactUs(
     // Variant 2:
 
     return (
-      <div class="w-full h-full flex items-center justify-center lg:max-w-[80%] px-4 lg:px-0">
+      <div
+        id="contact-us"
+        class="w-full h-full flex items-center justify-center lg:max-w-[80%] px-4 lg:px-0"
+      >
         <div class="flex flex-col justify-center md:justify-between min-w-full gap-7 md:gap-12 lg:flex-row-reverse md:flex-row">
           {image && (
             <Image
@@ -131,7 +134,10 @@ export default function ContactUs(
   // Variant 1:
 
   return (
-    <div class="w-full h-full flex items-center justify-center lg:max-w-[80%] px-4 lg:px-0">
+    <div
+      id="contact-us"
+      class="w-full h-full flex items-center justify-center lg:max-w-[80%] px-4 lg:px-0"
+    >
       <div class="grid lg:grid-cols-2 justify-center lg:justify-between min-w-full gap-7 md:gap-16 lg:gap-0">
         <div class="flex flex-col justify-center lg:justify-start text-center lg:text-start gap-5 lg:gap-3 lg:max-w-[374px]">
           {title &&
