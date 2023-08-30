@@ -37,12 +37,12 @@ function Dots(
           `,
         }}
       />
-      <ul class="flex items-center justify-center gap-4 z-10 rounded-[5px] bg-midnightblue w-[90px] h-[10px]">
+      <ul class="flex items-center justify-center gap-4 z-10">
         {tickets?.flat().map((_, index) => (
           <li class="carousel-item">
             <Slider.Dot index={index}>
               <div
-                class="w-8 h-[10px] rounded-[5px] group-disabled:animate-progress bg-gradient-to-r from-pink from-[length:var(--dot-progress)] to-midnightblue to-[length:var(--dot-progress)]"
+                class="w-2 h-2 rounded-full group-disabled:animate-progress bg-gradient-to-r from-pink from-[length:var(--dot-progress)] to-midnightblue to-[length:var(--dot-progress)]"
                 style={{ animationDuration: `${interval}s` }}
               />
             </Slider.Dot>
@@ -78,9 +78,7 @@ function MobileCarousel(
         ))}
       </Slider>
 
-      {tickets?.flat?.length !== 0 && (
-        <Dots tickets={tickets} interval={interval} />
-      )}
+      <Dots tickets={tickets} interval={interval} />
 
       <SliderJS rootId={id} interval={interval && interval * 1e3} infinite />
     </div>

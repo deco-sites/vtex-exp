@@ -63,7 +63,11 @@ function CardsShelf({
           id={id}
           class="container grid grid-cols-[48px_1fr_48px] px-0 sm:px-5 h-full"
         >
-          <Slider class="inline-grid justify-center lg:justify-stretch lg:carousel lg:carousel-center gap-14 lg:gap-6 col-span-full row-start-2 row-end-5 h-full">
+          <Slider
+            class={`${
+              products?.length <= 3 ? "2xl:justify-center" : "2xl:justify-start"
+            } inline-grid justify-center lg:justify-stretch lg:carousel lg:carousel-center gap-14 lg:gap-6 col-span-full row-start-2 row-end-5 h-full`}
+          >
             {products?.map((card, index) => (
               <Slider.Item
                 index={index}
