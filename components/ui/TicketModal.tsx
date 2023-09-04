@@ -12,7 +12,7 @@ const updateAttachment = Runtime.create(
 
 export default function TicketModal() {
   const loading = useSignal(false);
-  const { cart } = useCart();
+  const { cart, updateItems } = useCart();
   const { displayTicketModal, displayCart } = useUI();
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {
@@ -49,7 +49,13 @@ export default function TicketModal() {
     }
   };
 
-  const closeModal = () => {
+  const closeModal = async () => {
+    if (!cart.value) return;
+
+    await updateItems({
+      orderItems: [{ index: (cart.value.items.length - 1), quantity: 0 }],
+    });
+
     displayTicketModal.value = false;
   };
 
