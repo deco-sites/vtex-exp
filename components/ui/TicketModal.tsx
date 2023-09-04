@@ -1,18 +1,32 @@
-import { useSignal } from "@preact/signals";
+import { Signal, useSignal } from "@preact/signals";
 import { Runtime } from "$store/runtime.ts";
 import { useUI } from "$store/sdk/useUI.ts";
 import type { JSX } from "preact";
 import { asset } from "$fresh/runtime.ts";
 import Input from "$store/components/ui/Input.tsx";
-import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
+import { OrderForm } from "deco-sites/std/packs/vtex/types.ts";
 
 const updateAttachment = Runtime.create(
   "deco-sites/std/actions/vtex/cart/updateItemAttachment.ts",
 );
 
-export default function TicketModal() {
+interface Item {
+  quantity: number;
+  index: number;
+}
+
+interface CartProps {
+  orderItems: Item[];
+  allowedOutdatedData?: Array<"paymentData">;
+}
+
+interface Props {
+  cart: Signal<OrderForm | null>;
+  updateItems: (p: Partial<CartProps> | undefined) => Promise<void>;
+}
+
+export default function TicketModal({ cart, updateItems }: Props) {
   const loading = useSignal(false);
-  const { cart, updateItems } = useCart();
   const { displayTicketModal, displayCart } = useUI();
 
   const handleSubmit: JSX.GenericEventHandler<HTMLFormElement> = async (e) => {

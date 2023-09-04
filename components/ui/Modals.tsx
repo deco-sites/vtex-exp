@@ -33,7 +33,7 @@ function Modals() {
           </div>
         }
       >
-        <TicketModal />
+        <TicketModal cart={cart} updateItems={updateItems} />
       </Suspense>
     </Modal>
   );
