@@ -9,6 +9,8 @@ export interface Props {
     image: LiveImage;
     description?: string;
     href?: string;
+    width: number;
+    height: number;
   }>;
   links?: Array<{
     label: string;
@@ -42,8 +44,8 @@ export default function Footer({ logos, links, contactUs }: Props) {
                     loading="lazy"
                     src={logo?.image}
                     alt={logo?.description}
-                    width={200}
-                    height={200}
+                    width={logo.width}
+                    height={logo.height}
                   />
                 </a>
               ))}
