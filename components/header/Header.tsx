@@ -23,20 +23,31 @@ export interface Props {
    * @description Responsible for checking the current path. No need to change anything.
    */
   selectedPath?: string;
+
+  /**
+   * @description Displays available languages for translation.
+   */
+  languages: { link: string; label: string }[];
 }
 
 function Header({
   navItems = [],
   logo,
   selectedPath,
+  languages,
 }: Props) {
   return (
     <>
       <Drawers
-        menu={{ items: navItems }}
+        menu={{ items: navItems, languages }}
       >
         <div class="bg-transparent backdrop-blur-sm fixed w-full z-50 animate-slide-bottom text-white">
-          <Navbar items={navItems} logo={logo} selectedPath={selectedPath} />
+          <Navbar
+            items={navItems}
+            logo={logo}
+            selectedPath={selectedPath}
+            languages={languages}
+          />
         </div>
       </Drawers>
 

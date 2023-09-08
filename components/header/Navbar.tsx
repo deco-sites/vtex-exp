@@ -6,11 +6,17 @@ import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import { asset } from "$fresh/runtime.ts";
 
-function Navbar({ items, logo, selectedPath }: {
+function Navbar({ items, logo, selectedPath, languages }: {
   items: INavItem[];
   logo?: { src: string; alt: string };
   selectedPath?: string;
+  languages: { link: string; label: string }[];
 }) {
+  const selectedLanguage = selectedPath === "/" && "EN" ||
+    selectedPath?.includes("en") && "EN" ||
+    selectedPath?.includes("es") && "ES" ||
+    selectedPath?.includes("pt") && "PT";
+
   return (
     <>
       {/* Mobile Version */}
@@ -116,22 +122,20 @@ function Navbar({ items, logo, selectedPath }: {
                     class="hover:text-pink transition-colors duration-100 object-cover pb-1"
                   />
 
-                  <span class="uppercase font-bold text-white">EN</span>
+                  <span class="uppercase font-bold text-white">
+                    {selectedLanguage}
+                  </span>
                 </label>
 
                 <ul
                   tabIndex={0}
                   class="flex flex-col gap-1 dropdown-content z-[1] text-sm rounded-none menu p-1 shadow-md bg-darkslategray w-[116px]"
                 >
-                  <li>
-                    <a href="#">English</a>
-                  </li>
-                  <li>
-                    <a href="#">Portuguese</a>
-                  </li>
-                  <li>
-                    <a href="#">Spanish</a>
-                  </li>
+                  {languages?.map((item) => (
+                    <li>
+                      <a href={item.link ?? "#"}>{item.label}</a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
