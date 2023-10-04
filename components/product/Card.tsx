@@ -40,7 +40,7 @@ export default function Card({ product, index }: Props) {
       </figure>
 
       <div class="card-body items-center text-center">
-        <h1 class="card-title text-white text-[40px]">
+        <h1 class="card-title text-white text-[40px] leading-10">
           {product?.isVariantOf?.name}
         </h1>
 
