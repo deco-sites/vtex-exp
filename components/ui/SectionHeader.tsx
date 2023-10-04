@@ -19,7 +19,7 @@ function Header(props: Props) {
             {props.title &&
               (
                 <h1
-                  class={`text-2xl leading-8 lg:leading-10
+                  class={`text-[32px] leading-8 lg:leading-10
                   ${props.colorReverse ? "text-primary-content" : "text-white"}
                 `}
                 >
