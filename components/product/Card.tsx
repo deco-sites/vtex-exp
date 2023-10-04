@@ -10,7 +10,7 @@ export interface Props {
 const relative = (name?: string) => {
   const formattedName = name?.toLowerCase().replace(/\s+/g, "-");
 
-  return `/experiences/${"br"}/${formattedName}`;
+  return `/experiences/${"en"}/${formattedName}`;
 };
 
 export default function Card({ product, index }: Props) {
