@@ -85,7 +85,7 @@ export default function InfoSection(
               src={asset("/mask-gradient-2.webp")}
               class="hidden md:block absolute inset-0 bg-no-repeat bg-cover w-[788px] h-[738px] md:info-image-rotate-3-md lg:info-image-rotate-3-lg"
             />
-            <div id="infos" class="hidden md:flex flex-col gap-12">
+            <div id="infos" class="hidden md:flex flex-col">
               {infos?.map((info) => <Info {...info} />)}
             </div>
 
