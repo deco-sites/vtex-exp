@@ -44,7 +44,7 @@ export default function ExperiencePackage({ title, cards }: Props) {
             class="flex text-center items-center justify-center m-10"
           >
             <div class="text-3xl">
-              <h1 class="m-10">
+              <h1 class="text-[32px] m-10">
                 {title}
               </h1>
             </div>
@@ -63,10 +63,10 @@ export default function ExperiencePackage({ title, cards }: Props) {
                   class="max-w-[29px]"
                   loading="lazy"
                 />
-                <h2 class="text-lg text-[#FFC4DD] mt-[15px] mb-[10px]">
+                <h2 class="text-[20px] text-[#FFC4DD] mt-[15px] mb-[10px]">
                   {card.title}
                 </h2>
-                <p class="text-xs text-white max-w-[263px] max-h-[51px] md:max-w-[181px] md:max-h[85] lg:min-w-[181px] lg:min-h-[85px]">
+                <p class="text-[14px] text-white max-w-[263px] max-h-[51px] md:max-w-[181px] md:max-h[85] lg:min-w-[181px] lg:min-h-[85px]">
                   {card.description}
                 </p>
               </div>
