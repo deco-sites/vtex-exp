@@ -33,7 +33,7 @@
 
   /* Allow changing font family via CMS */
   html {
-    font-family: var(--font-family);
+    @apply font-vtex-trust;
     scroll-behavior: smooth;
   }
 

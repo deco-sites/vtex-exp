@@ -11,6 +11,13 @@ function GlobalTags() {
 
       {/* Web Manifest */}
       <link rel="manifest" href={asset("/site.webmanifest")} />
+
+      <link
+        as="font"
+        rel="preload"
+        type="font/woff2"
+        href={asset("/fonts/VTEXTrust-Variable.woff2")}
+      />
     </Head>
   );
 }

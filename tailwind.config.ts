@@ -5,6 +5,9 @@ export default {
   daisyui: { themes: [], logs: false },
   content: ["./**/*.tsx"],
   theme: {
+    fontFamily: {
+      "vtex-trust": ["VTEXTrust-Variable", "sans-serif"],
+    },
     container: {
       center: true,
     },
