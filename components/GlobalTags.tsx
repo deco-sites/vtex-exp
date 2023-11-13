@@ -16,7 +16,7 @@ function GlobalTags() {
         as="font"
         rel="preload"
         type="font/woff2"
-        href={asset("/fonts/VTEXTrust-Variable.woff2")}
+        href={asset("/fonts/VTEXTrust-Regular.woff2")}
       />
     </Head>
   );

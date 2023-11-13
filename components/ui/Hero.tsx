@@ -17,7 +17,7 @@ export default function Hero({ title, backgroundImage, lcp }: Props) {
         <div class="hero-overlay bg-transparent" />
         <div class="hero-content text-center text-white pt-32">
           <div class="max-w-xs md:max-w-md lg:max-w-lg">
-            <h1 class="mb-5 text-[32px] lg:text-[40px] leading-tight tracking-wide font-semibold">
+            <h1 class="mb-5 text-[32px] lg:text-[40px] leading-tight tracking-wide">
               {title}
             </h1>
           </div>
