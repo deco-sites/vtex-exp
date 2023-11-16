@@ -107,7 +107,8 @@ function Navbar({ items, logo, selectedPath, languages }: {
             <div class="md:flex lg:hidden">
               <MenuButton />
             </div>
-            <div class="md:hidden lg:flex items-center justify-center">
+            {
+              /* <div class="md:hidden lg:flex items-center justify-center">
               <div class="w-8 h-8 rounded-full flex items-center justify-center dropdown dropdown-bottom">
                 <label
                   tabIndex={0}
@@ -138,7 +139,8 @@ function Navbar({ items, logo, selectedPath, languages }: {
                   ))}
                 </ul>
               </div>
-            </div>
+            </div> */
+            }
           </div>
         </div>
       </div>

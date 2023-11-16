@@ -5,6 +5,13 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Props {
   contactUs: ContactProps;
+  primaryLogo?: {
+    image: LiveImage;
+    description?: string;
+    href?: string;
+    width: number;
+    height: number;
+  };
   logos?: Array<{
     image: LiveImage;
     description?: string;
@@ -18,7 +25,9 @@ export interface Props {
   }>;
 }
 
-export default function Footer({ logos, links, contactUs }: Props) {
+export default function Footer(
+  { primaryLogo, logos, links, contactUs }: Props,
+) {
   return (
     <section class="flex flex-col bg-darkslategray w-full h-full pt-24 pb-12 gap-20 relative">
       <div class="flex items-center justify-center w-full">
@@ -35,9 +44,36 @@ export default function Footer({ logos, links, contactUs }: Props) {
           loading="lazy"
         />
 
-        <div class="flex px-4 md:px-0 w-full md:max-w-[85%] mt-10 md:mt-14">
+        <div class="flex px-4 md:px-0 w-full md:max-w-[80%] xl:max-w-[95%] mt-10 md:mt-14">
           <div class="flex flex-col md:flex-row items-center md:justify-between min-w-full gap-16 md:gap-0">
-            <div class="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 lg:first:pl-12 w-full order-2 md:order-1">
+            <div class="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 lg:first:pl-12">
+              {primaryLogo && (
+                <a class="w-28 max-h-16" href={primaryLogo.href}>
+                  <img
+                    loading="lazy"
+                    src={primaryLogo.image}
+                    alt={primaryLogo.description}
+                    width={primaryLogo.width}
+                    height={primaryLogo.height}
+                  />
+                </a>
+              )}
+            </div>
+
+            <ul class="flex items-center xl:justify-center w-full gap-8">
+              {links?.map((item) => (
+                <li>
+                  <a
+                    class="text-white capitalize opacity-90 hover:opacity-100 transition-opacity duration-150 text-sm"
+                    href={item.href}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div class="flex flex-col md:flex-row items-center justify-center md:justify-start gap-4 lg:first:pl-12">
               {logos?.map((logo) => (
                 <a class="w-28 max-h-16" href={logo.href}>
                   <img
@@ -50,19 +86,6 @@ export default function Footer({ logos, links, contactUs }: Props) {
                 </a>
               ))}
             </div>
-
-            <ul class="flex items-center justify-center md:justify-end gap-8 w-full order-1 md:order-2">
-              {links?.map((item) => (
-                <li>
-                  <a
-                    class="text-white capitalize opacity-90 hover:opacity-100 transition-opacity duration-150 text-sm"
-                    href={item.href}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
           </div>
         </div>
       </footer>

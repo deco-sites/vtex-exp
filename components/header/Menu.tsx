@@ -13,23 +13,23 @@ function MenuItem({ item }: { item: INavItem }) {
   );
 }
 
-function LanguageItem({ items }: { items: { link: string; label: string }[] }) {
-  return (
-    <div class="collapse collapse-plus">
-      <input type="checkbox" />
-      <div class="collapse-title">Languages</div>
-      <div class="collapse-content">
-        <ul>
-          {items.map((item) => (
-            <li>
-              <a class="underline text-sm" href={item.link}>{item.label}</a>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  );
-}
+// function LanguageItem({ items }: { items: { link: string; label: string }[] }) {
+//   return (
+//     <div class="collapse collapse-plus">
+//       <input type="checkbox" />
+//       <div class="collapse-title">Languages</div>
+//       <div class="collapse-content">
+//         <ul>
+//           {items.map((item) => (
+//             <li>
+//               <a class="underline text-sm" href={item.link}>{item.label}</a>
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+//     </div>
+//   );
+// }
 
 function Menu({ items, languages }: Props) {
   return (
@@ -40,7 +40,7 @@ function Menu({ items, languages }: Props) {
             <MenuItem item={item} />
           </li>
         ))}
-        <LanguageItem items={languages} />
+        {/* <LanguageItem items={languages} /> */}
       </ul>
     </div>
   );
