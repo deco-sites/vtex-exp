@@ -44,7 +44,11 @@ export default function Card({ product, index }: Props) {
           {product?.isVariantOf?.name}
         </h1>
 
-        <h2 class="text-darkgray text-xl">June 1st-7th</h2>
+        <h2 class="text-darkgray text-xl">
+          {product.isVariantOf?.additionalProperty?.find((item) =>
+            item.name === "Date"
+          )?.value || ""}
+        </h2>
 
         <p class="text-darkgray pt-3">
           {description?.substring(0, 150).concat("...")}
