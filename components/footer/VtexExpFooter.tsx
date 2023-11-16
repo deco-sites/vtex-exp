@@ -61,7 +61,7 @@ export default function Footer(
               )}
             </div>
 
-            <ul class="flex items-center xl:justify-center w-full gap-8">
+            <ul class="flex items-center justify-center w-full gap-8">
               {links?.map((item) => (
                 <li>
                   <a
