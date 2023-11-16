@@ -26,7 +26,7 @@ export default function Hero(
 
   const itemListElement: ListItem[] = cards?.map((card, index) => ({
     name: card?.isVariantOf?.name || "",
-    item: `/experiences/us/${
+    item: `/experiences/en/${
       card?.isVariantOf?.name?.toLowerCase()?.replace(/\s+/g, "-")
     }`,
     "@type": "ListItem",
