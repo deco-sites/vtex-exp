@@ -155,17 +155,3 @@ export default function TicketsBuy({ cards, interval }: Props) {
     </div>
   );
 }
-
-export const loader = async (props: Props, req: Request, ctx: Context) => {
-  const url = new URL(req.url);
-  const parts = url.href.split("/");
-  const term = parts[parts.length - 1];
-
-  const data = await vtexProductList(
-    { term: term !== "experiences" ? term.substring(0, 2) : "" },
-    req,
-    ctx,
-  );
-
-  return { ...props, cards: data };
-};
